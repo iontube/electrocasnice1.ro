@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const categories = [
+  { name: 'Masini de Spalat Rufe', slug: 'masini-de-spalat', color: '#055a5b' },
+  { name: 'Frigidere si Combine', slug: 'frigidere', color: '#2e5fa1' },
+  { name: 'Cuptoare si Aragazuri', slug: 'cuptoare-aragazuri', color: '#b85a1e' },
+  { name: 'Aspiratoare', slug: 'aspiratoare', color: '#6b4fa0' },
+  { name: 'Masini de Spalat Vase', slug: 'masini-spalat-vase', color: '#1e7a67' },
+  { name: 'Electrocasnice Mici', slug: 'electrocasnice-mici', color: '#a8792e' },
+];
+
+// Get all article pages
+const allPages = import.meta.glob('./**/*.astro', { eager: true });
+const excludePages = new Set(['index', 'contact', 'cookies', 'privacy-policy', 'privacy', 'gdpr', 'sitemap', '404', 'about', 'terms', 'disclaimer-afiliere', 'politica-cookies', 'politica-de-confidentialitate', 'politica-confidentialitate', 'termeni-si-conditii']);
+const excludeDirs = new Set(['blog', 'masini-de-spalat', 'frigidere', 'cuptoare-aragazuri', 'aspiratoare', 'masini-spalat-vase', 'electrocasnice-mici']);
+
+const articles: any[] = [];
+for (const [path, mod] of Object.entries(allPages)) {
+  const parts = path.replace('./', '').replace('.astro', '').split('/');
+  if (parts.length > 1 && (excludeDirs.has(parts[0]) || parts[parts.length - 1].startsWith('['))) continue;
+  const name = parts[parts.length - 1];
+  if (excludePages.has(name)) continue;
+  const frontmatter = (mod as any).frontmatter;
+  if (frontmatter?.title) {
+    articles.push(frontmatter);
+  }
+}
+
+articles.sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime());
+const featured = articles[0];
+const sideArticles = articles.slice(1, 5);
+const gridArticles = articles.slice(5, 11);
+---
+
+<Layout
+  title="Electrocasnice Oferte 2026 — Preturi, Pareri si Comparatii"
+  description="Compara electrocasnice pentru casa ta. Masini de spalat, frigidere, cuptoare, aspiratoare — preturi, pareri reale si oferte actualizate 2026."
+  breadcrumbs={[{ name: 'Acasa', url: '/' }]}
+>
+  <div class="pin-container">
+    <h1 class="sr-only">Electrocasnice — Preturi, Pareri si Comparatii 2026</h1>
+
+    <!-- Editorial hero: featured + sidebar list -->
+    {featured ? (
+      <section class="pin-hero">
+        <div class="pin-hero-main">
+          <ArticleCard
+            title={featured.title}
+            slug={featured.slug}
+            excerpt={featured.excerpt}
+            image={featured.image}
+            category={featured.category}
+            categorySlug={featured.categorySlug}
+            date={featured.date}
+            author={featured.author}
+            variant="featured"
+          />
+        </div>
+        {sideArticles.length > 0 && (
+          <aside class="pin-hero-side">
+            <h2 class="pin-label">Recent</h2>
+            {sideArticles.map(article => (
+              <ArticleCard
+                title={article.title}
+                slug={article.slug}
+                image={article.image}
+                category={article.category}
+                categorySlug={article.categorySlug}
+                date={article.date}
+                variant="list"
+              />
+            ))}
+          </aside>
+        )}
+      </section>
+    ) : (
+      <section class="pin-empty-hero">
+        <p class="pin-empty-hero-sub">Preturi, pareri si comparatii pentru cele mai cautate electrocasnice din Romania.</p>
+      </section>
+    )}
+
+    <!-- Category pills -->
+    <section class="pin-categories">
+      <h2 class="pin-label">Categorii</h2>
+      <div class="pin-category-pills">
+        {categories.map(cat => (
+          <a href={`/${cat.slug}/`} class="pin-cat-chip">
+            <span class="pin-chip-dot" style={`background: ${cat.color}`}></span>
+            {cat.name}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Grid articles -->
+    {gridArticles.length > 0 && (
+      <section class="pin-section">
+        <div class="pin-section-head">
+          <h2 class="pin-label">Toate Articolele</h2>
+          <a href="/blog/" class="pin-see-all">Vezi toate &rarr;</a>
+        </div>
+        <div class="pin-grid">
+          {gridArticles.map(article => (
+            <ArticleCard
+              title={article.title}
+              slug={article.slug}
+              excerpt={article.excerpt}
+              image={article.image}
+              category={article.category}
+              categorySlug={article.categorySlug}
+              date={article.date}
+              author={article.author}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>

@@ -1,0 +1,79 @@
+---
+const currentPath = Astro.url.pathname;
+const categories = [
+  { name: 'Masini de Spalat', slug: 'masini-de-spalat' },
+  { name: 'Frigidere', slug: 'frigidere' },
+  { name: 'Cuptoare', slug: 'cuptoare-aragazuri' },
+  { name: 'Aspiratoare', slug: 'aspiratoare' },
+  { name: 'Masini Spalat Vase', slug: 'masini-spalat-vase' },
+  { name: 'Electrocasnice Mici', slug: 'electrocasnice-mici' },
+];
+---
+
+<header class="pin-header" id="site-header">
+  <div class="pin-header-top">
+    <a href="/" class="pin-logo">
+      <span class="pin-logo-mark">E1</span>
+      <span class="pin-logo-text">Electrocasnice1</span>
+    </a>
+    <div class="pin-header-actions">
+      <a href="/blog/" class="pin-header-link">Articole</a>
+      <a href="/contact/" class="pin-header-link">Contact</a>
+      <button class="pin-menu-btn" id="nav-toggle" aria-label="Meniu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="pin-overlay" id="nav-overlay"></div>
+<nav class="pin-drawer" id="nav-mobile">
+  <div class="pin-drawer-head">
+    <span class="pin-logo-mark">E1</span>
+    <button class="pin-drawer-close" id="nav-mobile-close" aria-label="Inchide">&times;</button>
+  </div>
+  <div class="pin-drawer-links">
+    <a href="/" class:list={{ active: currentPath === '/' }}>Acasa</a>
+    {categories.map(cat => (
+      <a href={`/${cat.slug}/`} class:list={{ active: currentPath.startsWith(`/${cat.slug}`) }}>{cat.name}</a>
+    ))}
+    <a href="/blog/" class:list={{ active: currentPath.startsWith('/blog') }}>Toate Articolele</a>
+  </div>
+  <div class="pin-drawer-foot">
+    <a href="/contact/">Contact</a>
+    <a href="/politica-de-confidentialitate/">Confidentialitate</a>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const mobile = document.getElementById('nav-mobile');
+  const overlay = document.getElementById('nav-overlay');
+  const close = document.getElementById('nav-mobile-close');
+
+  function openMenu() {
+    mobile?.classList.add('open');
+    overlay?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    mobile?.classList.remove('open');
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+</script>

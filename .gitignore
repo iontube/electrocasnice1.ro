@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.env
+generation.log
+.DS_Store
+scripts/temp-articles.json
+scripts/successful-keywords.json
+last-category.json

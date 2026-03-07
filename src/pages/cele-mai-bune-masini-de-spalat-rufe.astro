@@ -1,0 +1,470 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SimilarArticles from '../components/SimilarArticles.astro';
+import PrevNextNav from '../components/PrevNextNav.astro';
+import keywordsData from '../../keywords.json';
+
+export const frontmatter = {
+  title: "Cele mai bune masini de spalat rufe",
+  slug: "cele-mai-bune-masini-de-spalat-rufe",
+  excerpt: "Daca vrei sa afli care sunt cele mai bune masini de spalat rufe, raspunsul depinde strict de nevoile tale specifice. Nu exista o singura masina universala, ci optiuni care exceleaza in diverse categorii: capacitate, eficienta energetica, functii smart sau pret.",
+  image: "/images/articles/cele-mai-bune-masini-de-spalat-rufe.webp",
+  category: "Masini de Spalat Rufe",
+  categorySlug: "masini-de-spalat",
+  date: "2026-03-07T14:19:38.749Z",
+  modifiedDate: "2026-03-07T14:19:38.750Z",
+  author: "Raluca Tanase",
+  authorRole: "Redactor Electrocasnice",
+  authorBio: "Raluca scrie despre electrocasnice de peste 5 ani, cu accent pe masini de spalat si frigidere."
+};
+
+const breadcrumbs = [
+  { name: "Acasa", url: "/" },
+  { name: "Masini de Spalat Rufe", url: "/masini-de-spalat/" },
+  { name: "Cele mai bune masini de spalat rufe", url: "/cele-mai-bune-masini-de-spalat-rufe/" }
+];
+
+const faq = [
+  { question: "Cat consuma in medie o masina de spalat rufe pe an?", answer: "O masina de spalat rufe clasa A+++ consuma in jur de 150-200 kWh pe an pentru un utilizator mediu (aprox. 220 cicluri). Modelele mai vechi sau cu clasa energetica inferioara pot consuma peste 300 kWh/an. Costul lunar la electricitate este intre 5 si 15 lei, in functie de tariful la energie." },
+  { question: "Ce inseamna clasa energetica A la masinile de spalat rufe?", answer: "Clasa energetica A este cea mai eficienta categorie conform noilor standarde europene (de la A la G). Aceasta indica un consum de energie electrica foarte scazut per ciclu de spalare, contribuind la reducerea costurilor si la protejarea mediului. Modelele cu A+++ conform vechii clasificari se incadreaza acum in clasele A, B sau C." },
+  { question: "Este mai buna o masina de spalat cu 1000 rpm sau 1400 rpm?", answer: "O masina cu 1400 rpm stoarce rufele mai eficient, lasandu-le mai uscate decat una cu 1000 rpm. Aceasta inseamna timp mai scurt de uscare. Totusi, vitezele mari genereaza mai mult zgomot si pot uza tesaturile mai repede. Pentru majoritatea utilizatorilor, 1200-1400 rpm reprezinta un echilibru bun." },
+  { question: "Merita o masina de spalat cu functie de aburi?", answer: "Da, functia de aburi (steam) este utila pentru igienizarea profunda a hainelor, eliminarea alergenilor si reducerea cutelor. Este recomandata persoanelor cu alergii, familiilor cu copii mici sau celor care doresc sa reduca timpul petrecut la calcat. Poate creste putin consumul de apa si durata ciclului." },
+  { question: "Care este diferenta dintre motorul Inverter si cel standard?", answer: "Motorul Inverter (ex: Digital Inverter, EcoSilence Drive, Direct Drive) nu are perii de carbon, fiind mai silentios, mai eficient energetic si mai durabil decat motoarele conventionale. Acestea au, de obicei, o garantie extinsa (pana la 10 ani) si sunt mai rezistente la uzura, facand masina de spalat rufe mai fiabila pe termen lung." }
+];
+
+const toc = [
+  { title: "Bosch Serie 6 WAU28T80BY", id: "bosch-serie-6-wau28t80by" },
+  { title: "Samsung WW90T556AAW/LE", id: "samsung-ww90t556aawle" },
+  { title: "LG F4WV709H1E", id: "lg-f4wv709h1e" },
+  { title: "Arctic EF8124AD++", id: "arctic-ef8124ad" },
+  { title: "Beko WTV8734X0", id: "beko-wtv8734x0" },
+  { title: "Gorenje WS6235R", id: "gorenje-ws6235r" },
+  { title: "Comparatie", id: "comparatie" },
+  { title: "Cum alegi cea mai buna masina de spalat rufe pentru tine?", id: "sfaturi" },
+  { title: "Intrebari Frecvente", id: "faq" }
+];
+
+const allArticles = keywordsData.completed.map(item => ({
+  title: item.keyword.charAt(0).toUpperCase() + item.keyword.slice(1),
+  slug: item.keyword.toLowerCase()
+    .replace(/ă/g, 'a').replace(/â/g, 'a').replace(/î/g, 'i')
+    .replace(/ș/g, 's').replace(/ț/g, 't')
+    .replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+  excerpt: item.excerpt || '',
+  image: `/images/articles/${item.keyword.toLowerCase()
+    .replace(/ă/g, 'a').replace(/â/g, 'a').replace(/î/g, 'i')
+    .replace(/ș/g, 's').replace(/ț/g, 't')
+    .replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}.webp`,
+  category: item.category,
+  categorySlug: item.categorySlug,
+  date: item.date || new Date().toISOString()
+}));
+---
+
+<Layout
+  title="Cele mai bune masini de spalat rufe 2026 — Electrocasnice1.ro"
+  description="Daca vrei sa afli care sunt cele mai bune masini de spalat rufe, raspunsul depinde strict de nevoile tale specifice. Nu exista o singura masina universala, ci optiuni care exceleaza in diverse categorii: capacitate, eficienta energetica, functii smart sau pret."
+  image="/images/articles/cele-mai-bune-masini-de-spalat-rufe.webp"
+  type="article"
+  publishedTime="2026-03-07T14:19:38.749Z"
+  modifiedTime="2026-03-07T14:19:38.750Z"
+  author="Raluca Tanase"
+  faqSchema={faq}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Full-width hero image with overlay tag -->
+  <div class="pin-article-hero">
+    <img src="/images/articles/cele-mai-bune-masini-de-spalat-rufe.webp" alt="Cele mai bune masini de spalat rufe" width="1200" height="600" decoding="async" fetchpriority="high" />
+    <span class="pin-article-hero-tag" data-cat="masini-de-spalat">Masini de Spalat Rufe</span>
+  </div>
+
+  <!-- Article header — centered -->
+  <div class="pin-article-header">
+    <nav class="pin-article-crumbs" aria-label="Breadcrumbs">
+      <a href="/">Acasa</a>
+      <span>/</span>
+      <a href="/masini-de-spalat/">Masini de Spalat Rufe</a>
+      <span>/</span>
+      <span>Cele mai bune masini de spalat rufe</span>
+    </nav>
+    <h1>Cele mai bune masini de spalat rufe</h1>
+    <div class="pin-article-meta">
+      <span class="pin-article-author">Raluca Tanase</span>
+      <span class="pin-article-sep">&middot;</span>
+      <time>7 martie 2026</time>
+    </div>
+  </div>
+
+  <!-- Content — single centered column -->
+  <article class="pin-article-body">
+    <!-- TOC dropdown (visible on all screens) -->
+    <details class="pin-toc">
+      <summary>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+        Cuprins
+      </summary>
+      <nav class="pin-toc-links">
+        {toc.map(item => (
+          <a href={`#${item.id}`}>{item.title}</a>
+        ))}
+      </nav>
+    </details>
+
+    <div class="article-content" data-content>
+      <section id="intro">
+        <p>Daca vrei sa afli care sunt <strong>cele mai bune masini de spalat rufe</strong>, raspunsul depinde strict de nevoile tale specifice. Nu exista o singura masina universala, ci optiuni care exceleaza in diverse categorii: capacitate, eficienta energetica, functii smart sau pret. De exemplu, pentru familiile mari, cea mai buna optiune ar putea fi un model cu capacitate de 10 kg, in timp ce pentru un apartament mic, o masina slim de 6 kg ar fi ideala.</p><p>Alegerea unei <strong>masini de spalat rufe</strong> noi presupune evaluarea mai multor factori cheie. Clasa energetica conteaza pentru a reduce costurile lunare la electricitate, mai ales ca o masina de spalat este unul dintre cele mai utilizate electrocasnice dintr-o gospodarie. Viteza de centrifugare influenteaza gradul de uscare al hainelor, reducand timpul petrecut la uscator sau pe sarma. Functiile suplimentare, precum programul de igienizare cu aburi, ciclurile rapide sau conectivitatea WiFi, pot aduce un plus de confort, dar si un pret mai ridicat.</p><p>Ce factori ar trebui sa iei in considerare cand cauti <strong>cele mai bune masini de spalat rufe</strong>? Capacitatea de incarcare, exprimata in kilograme, este primul criteriu. Un cuplu tanar nu are aceleasi nevoi ca o familie cu trei copii. Durata de viata si fiabilitatea sunt, aspecte importante, adesea corelate cu brandul si calitatea constructiei. bugetul disponibil joaca un rol major in restrangerea optiunilor. In acest articol, vom analiza cateva dintre cele mai performante modele disponibile pe piata din Romania, ajutandu-te sa faci o alegere informata.</p>
+      </section>
+
+
+      <div data-review id="bosch-serie-6-wau28t80by">
+        <span data-tag>Eficienta Maxima</span>
+        <h2>Bosch Serie 6 WAU28T80BY</h2>
+        <div data-specs>
+          <span><strong>Capacitate:</strong> 9 kg</span>
+          <span><strong>Clasa energetica:</strong> A</span>
+          <span><strong>Nivel zgomot:</strong> 52 dB(A) spalare / 74 dB(A) centrifugare</span>
+          <span><strong>Consum:</strong> 49 kWh/100 cicluri (Eco 40-60)</span>
+          <span><strong>Dimensiuni:</strong> 59.8 x 84.8 x 63.2 cm</span>
+          <span><strong>Functii:</strong> ActiveWater Plus, Reload function, SpeedPerfect, VarioDrum, AntiVibration Design, Motor EcoSilence Drive</span>
+        </div>
+        <p>Masina de spalat Bosch Serie 6 WAU28T80BY are clasa energetica A, oferind o eficienta de top pentru un consum redus de energie. Daca iti doresti un aparat fiabil, care sa te ajute sa economisesti pe termen lung, acest model este o optiune serioasa.</p><p>Unul dintre punctele forte ale acestei masini este tehnologia ActiveWater Plus. Aceasta ajusteaza automat cantitatea de apa folosita in functie de incarcatura, optimizand consumul chiar si la cicluri partiale. Motorul EcoSilence Drive, fara perii, nu doar ca reduce consumul de energie, dar si nivelul de zgomot, facand-o potrivita pentru bucatarii sau zone de zi deschise. designul AntiVibration stabilizeaza masina in timpul functionarii, in special la centrifugare.</p><p>Cat de eficienta este la stoarcere? Cu o viteza de centrifugare de pana la 1400 rpm, hainele ies semnificativ mai uscate, ceea ce reduce timpul de uscare. Functia SpeedPerfect poate scurta durata ciclurilor de spalare cu pana la 65%, fara a compromite calitatea curatarii, un atu pentru cei cu un program incarcat. Capacitatea de 9 kg este generoasa, potrivita pentru familii medii spre mari.</p><p>Pe langa performanta, Bosch acorda o atentie deosebita durabilitatii. Materialele folosite si constructia solida sugereaza o durata de viata extinsa. Pretul se situeaza in segmentul mediu-superior, reflectand calitatea si tehnologia oferita. Disponibila la aproximativ 3000-3300 lei in majoritatea magazinelor online.</p><p>Pentru cine este potrivita aceasta masina? Pentru familiile care cauta o varianta buna energetic, silentioasa si durabila, cu programe versatile. Daca bugetul permite, Bosch Serie 6 WAU28T80BY este o investitie inteligenta in igiena casei.</p>
+        <div data-pros-cons>
+          <div>
+            <h4 class="pros-title">Avantaje</h4>
+            <ul data-pros>
+          <li>Clasa energetica A, consum redus</li>
+          <li>Nivel de zgomot scazut datorita motorului EcoSilence Drive</li>
+          <li>Sistemul ActiveWater Plus optimizeaza consumul de apa</li>
+          <li>Functia SpeedPerfect pentru cicluri rapide</li>
+          <li>Capacitate generoasa de 9 kg</li>
+          <li>Constuctie solida si fiabila</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cons-title">Dezavantaje</h4>
+            <ul data-cons>
+          <li>Pretul este peste medie comparativ cu alte branduri</li>
+          <li>Functiile smart (conectivitate) lipsesc la acest model specific</li>
+          <li>Ciclu standard Eco 40-60 dureaza aproape 4 ore</li>
+          <li>Nu are functie de uscare integrata</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-review id="samsung-ww90t556aawle">
+        <span data-tag>Alegerea Noastra</span>
+        <h2>Samsung WW90T556AAW/LE</h2>
+        <div data-specs>
+          <span><strong>Capacitate:</strong> 9 kg</span>
+          <span><strong>Clasa energetica:</strong> A</span>
+          <span><strong>Nivel zgomot:</strong> 53 dB(A) spalare / 74 dB(A) centrifugare</span>
+          <span><strong>Consum:</strong> 49 kWh/100 cicluri (Eco 40-60)</span>
+          <span><strong>Dimensiuni:</strong> 60 x 85 x 55 cm</span>
+          <span><strong>Functii:</strong> AddWash, EcoBubble, Drum Clean, Motor Digital Inverter, AI Control, Conectivitate WiFi</span>
+        </div>
+        <p>Samsung WW90T556AAW/LE se numara printre <strong>cele mai bune masini de spalat rufe</strong> datorita combinarii capacitatii mari cu functii smart si performanta eco. Aceasta masina este ideala pentru gospodariile moderne, cu o interfata intuitiva si usor de folosit.</p><p>Ce face speciala aceasta masina? Tehnologia EcoBubble, care genereaza bule ce dizolva detergentul si il activeaza rapid, permitand spalarea eficienta la temperaturi scazute. Acest lucru inseamna economie de energie si protectia tesaturilor delicate. Functia AddWash, prin hubloul mic integrat, permite adaugarea de haine uitate sau balsam dupa ce ciclul a inceput, un avantaj practic nepretuit.</p><p>Cat despre conectivitate, masina are AI Control. Prin aplicatia SmartThings, poti controla masina de la distanta, poti primi recomandari de cicluri bazate pe tipul de rufe si poti verifica statusul spalarii. Motorul Digital Inverter este fiabil, silentios si vine cu garantie extinsa, oferind pace mintii.</p><p>Consumul de energie este, un punct forte, masina incadrandu-se in clasa A. Capacitatea de 9 kg este suficienta pentru o familie de 3-4 persoane, iar viteza de centrifugare de 1400 rpm asigura haine aproape uscate. Pretul se plaseaza in segmentul mediu-spre-ridicat, in jur de 3200-3500 lei, justificat de functiile avansate.</p><p>Merita mentionat si ciclul Drum Clean, care igienizeaza interiorul masinii, si optiunea de programare intarziata. Dezavantajele apar la pretul mai ridicat si la complexitatea initiala a setarilor smart, care pot necesita putin timp de acomodare. Pentru cei care cauta o masina de spalat rufe smart, eficienta si cu functii utile, acest model Samsung este o varianta buna.</p>
+        <div data-pros-cons>
+          <div>
+            <h4 class="pros-title">Avantaje</h4>
+            <ul data-pros>
+          <li>Tehnologia EcoBubble pentru spalare eficienta la temperaturi joase</li>
+          <li>Functia AddWash pentru adaugarea hainelor uitate</li>
+          <li>Control prin aplicatia SmartThings (AI Control)</li>
+          <li>Motor Digital Inverter silentios si fiabil</li>
+          <li>Clasa energetica A cu consum redus</li>
+          <li>Capacitate de 9 kg</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cons-title">Dezavantaje</h4>
+            <ul data-cons>
+          <li>Pret mai ridicat decat modelele fara functii smart</li>
+          <li>Interfata smart poate fi complexa pentru unii utilizatori</li>
+          <li>Durata lunga a ciclului Eco (aprox. 3 ore 40 min)</li>
+          <li>Necesita conexiune Wi-Fi stabila pentru functiile smart</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-review id="lg-f4wv709h1e">
+        <span data-tag>Premium</span>
+        <h2>LG F4WV709H1E</h2>
+        <div data-specs>
+          <span><strong>Capacitate:</strong> 9 kg</span>
+          <span><strong>Clasa energetica:</strong> A</span>
+          <span><strong>Nivel zgomot:</strong> 52 dB(A) spalare / 72 dB(A) centrifugare</span>
+          <span><strong>Consum:</strong> 49 kWh/100 cicluri (Eco 40-60)</span>
+          <span><strong>Dimensiuni:</strong> 60 x 85 x 56.5 cm</span>
+          <span><strong>Functii:</strong> AI DD, Steam+, Smart Diagnosis, TurboWash 360, ThinQ (WiFi), Inverter Direct Drive</span>
+        </div>
+        <p>LG F4WV709H1E este o masina de spalat rufe premium, construita pentru performanta si grija fata de tesaturi. Daca esti in cautarea unei optiuni de top, cu tehnologii avansate, acest model merita atentia ta. Este printre cele mai bune masini de spalat rufe pe care le poti alege in segmentul premium.</p><p>Ce tehnologii bun integreaza? AI DD (Artificial Intelligence Direct Drive) detecteaza greutatea si textura tesaturilor pentru a selecta automat tiparul optim de miscare al cuvei. Acest lucru asigura o protectie sporita a hainelor, prevenind deteriorarea lor. Functia Steam+ utilizeaza aburul pentru a elimina alergenii si a reduce cutele, oferind o igienizare profunda si o calcare mai usoara.</p><p>TurboWash 360 permite o curatare rapida si eficienta in doar 39 de minute, folosind jeturi de apa multidirectionale. Consumul energetic este excelent, incadrandu-se in clasa A, iar motorul Inverter Direct Drive, montat direct pe cuva, reduce zgomotul si vibratiile, oferind in acelasi timp o fiabilitate sporita. Nivelul de zgomot la centrifugare este deosebit de redus, doar 72 dB.</p><p>Prin tehnologia ThinQ, masina poate fi controlata de pe smartphone, permitand descarcarea de cicluri suplimentare si diagnosticarea rapida a eventualelor probleme (Smart Diagnosis). Capacitatea de 9 kg este ideala pentru familii, iar viteza de 1400 rpm la stoarcere este standard pentru performanta ridicata. Pretul se reflecta in tehnologia avansata, situandu-se in jurul valorii de 3800-4200 lei.</p><p>Este o varianta buna pentru cei care nu fac compromisuri in privinta ingrijirii hainelor si isi doresc functii smart de ultima generatie. Printre dezavantaje se numara pretul ridicat si necesitatea unei conexiuni Wi-Fi pentru a beneficia de toate functiile smart. Pentru cei care cauta performanta de varf si durabilitate, LG F4WV709H1E este o alegere potrivita.</p>
+        <div data-pros-cons>
+          <div>
+            <h4 class="pros-title">Avantaje</h4>
+            <ul data-pros>
+          <li>Tehnologia AI DD pentru protectia tesaturilor</li>
+          <li>Functia Steam+ pentru igienizare si reducerea cutelor</li>
+          <li>Program TurboWash 360 pentru spalare rapida</li>
+          <li>Motor Inverter Direct Drive, silentios si fiabil</li>
+          <li>Conectivitate WiFi (ThinQ) si Smart Diagnosis</li>
+          <li>Clasa energetica A si consum eficient</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cons-title">Dezavantaje</h4>
+            <ul data-cons>
+          <li>Pretul este unul dintre cele mai ridicate de pe piata</li>
+          <li>Necesita o conexiune Wi-Fi stabila pentru functiile smart</li>
+          <li>Complexitatea programelor poate necesita timp de adaptare</li>
+          <li>Incarcarea cu aburi (Steam+) nu este disponibila pe toate ciclurile</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-review id="arctic-ef8124ad">
+        <span data-tag>Pentru Buget Mic</span>
+        <h2>Arctic EF8124AD++</h2>
+        <div data-specs>
+          <span><strong>Capacitate:</strong> 8 kg</span>
+          <span><strong>Clasa energetica:</strong> A++</span>
+          <span><strong>Nivel zgomot:</strong> 62 dB(A) spalare / 77 dB(A) centrifugare</span>
+          <span><strong>Consum:</strong> 257 kWh/an (aproximativ 0.9 kWh/ciclu)</span>
+          <span><strong>Dimensiuni:</strong> 60 x 84 x 58 cm</span>
+          <span><strong>Functii:</strong> 12 programe, Pornire Intarziata, Program Bumbac Eco, Program Sintetice, Program Lana, Program Delicate</span>
+        </div>
+        <p>Cautand <strong>cele mai bune masini de spalat rufe</strong> accesibile, modelul Arctic EF8124AD++ iese in evidenta prin raportul calitate-pret. Este o varianta buna pentru cei cu un buget limitat, oferind o capacitate decenta si programe esentiale.</p><p>Ce ofera acest model? O capacitate de incarcare de 8 kg, potrivita pentru majoritatea familiilor. Clasa energetica A++ este respectabila, desi nu la fel de performanta ca A+++ sau A, dar ajuta la mentinerea costurilor de operare sub control, mai ales la pretul accesibil al masinii. Viteza de centrifugare de 1200 rpm este suficienta pentru o uscare decenta a hainelor.</p><p>Varietatea de 12 programe acopera majoritatea nevoilor uzuale: bumbac, sintetice, delicate, lana, rapid. Functia de pornire intarziata este utila pentru a programa ciclul de spalare in functie de programul tau. Este o masina de spalat rufe simpla in utilizare, fara functii smart complicate, ceea ce o face potrivita pentru oricine doreste fiabilitate fara briz-briz-uri.</p><p>Nivelul de zgomot, in special la centrifugare (77 dB), este mai ridicat comparativ cu modelele premium, deci nu este cea mai silentioasa optiune pentru un apartament mic sau o bucatarie deschisa. Pretul este insa punctul sau forte, situandu-se adesea sub 1500 lei, ceea ce o face extrem de atractiva. Disponibila pe scara larga in retailul autohton.</p><p>Pentru cine este recomandata? Pentru tineri la inceput de drum, cupluri sau familii mici care au nevoie de o masina de spalat fiabila, cu functii standard, la un pret imbatabil. Cei care cauta eficienta energetica de top sau functii avansate s-ar putea sa fie dezamagiti, insa ca masina de spalat rufe de baza, isi face treaba excelent pentru pretul sau.</p>
+        <div data-pros-cons>
+          <div>
+            <h4 class="pros-title">Avantaje</h4>
+            <ul data-pros>
+          <li>Pret foarte accesibil, sub 1500 lei</li>
+          <li>Capacitate de 8 kg, potrivita pentru familii medii</li>
+          <li>12 programe de spalare, inclusiv cicluri rapide si pentru lana</li>
+          <li>Clasa energetica A++ (economica pentru pretul sau)</li>
+          <li>Usor de utilizat, interfata intuitiva</li>
+          <li>Brand romanesc, service accesibil</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cons-title">Dezavantaje</h4>
+            <ul data-cons>
+          <li>Nivel de zgomot ridicat la centrifugare (77 dB)</li>
+          <li>Clasa energetica A++ nu este cea mai performanta</li>
+          <li>Lipsesc functiile smart sau programele speciale avansate (ex: aburi)</li>
+          <li>Durata programului Eco Bumbac poate fi lunga (peste 3.5 ore)</li>
+          <li>Materialele exterioare par mai putin premium</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-review id="beko-wtv8734x0">
+        <span data-tag>Raport Calitate-Pret</span>
+        <h2>Beko WTV8734X0</h2>
+        <div data-specs>
+          <span><strong>Capacitate:</strong> 8 kg</span>
+          <span><strong>Clasa energetica:</strong> A+++ (-30%)</span>
+          <span><strong>Nivel zgomot:</strong> 54 dB(A) spalare / 72 dB(A) centrifugare</span>
+          <span><strong>Consum:</strong> 39 kWh/100 cicluri (Eco 40-60)</span>
+          <span><strong>Dimensiuni:</strong> 60 x 84 x 59 cm</span>
+          <span><strong>Functii:</strong> AquaWave, ProSmart Inverter Motor, Program Bumbac Igienic, Program BabyProtect, Quick Wash, SteamTech</span>
+        </div>
+        <p>Beko WTV8734X0 este o optiune cu un raport calitate-pret excelent, oferind functii moderne la un pret competitiv. Daca vrei o masina de spalat rufe performanta, dar fara a depasi un buget rezonabil, aceasta merită luată în considerare.</p><p>Ce diferentiaza acest model? Tehnologia AquaWave asigura o miscare blanda a cuvei, protejand hainele in timpul spalarii. Motorul ProSmart Inverter este silentios, eficient energetic si durabil, adesea insotit de o garantie extinsa. Clasa energetica A+++ (-30%) este impresionanta, indicand un consum foarte redus de energie, printre cele mai bune din clasa sa.</p><p>Merita sa vorbim despre functiile de igienizare. Programul Bumbac Igienic la 60°C este conceput pentru a elimina bacteriile, iar functia SteamTech (abur) poate fi utilizata pentru a improspata hainele sau a reduce cutele. Programul BabyProtect este ideal pentru hainele bebelusilor sau persoanelor cu pielea sensibila, asigurand o clatire temeinica.</p><p>Cat de zgomotoasa este? La 54 dB in timpul spalarii si 72 dB la centrifugare, este una dintre cele mai silentioase masini din segmentul sau de pret. Capacitatea de 8 kg si viteza de centrifugare de 1400 rpm sunt standard pentru performanta buna. Pretul se situeaza in jurul valorii de 2200-2500 lei, oferind un pachet solid de functii.</p><p>Pentru cine este potrivita? Pentru familiile care cauta o masina eficienta energetic, silentioasa, cu functii utile de igienizare si ingrijire a hainelor, la un pret atractiv. Dezavantajele pot include o constructie mai putin robusta comparativ cu brandurile premium sau o interfata care, desi functionala, nu este la fel de moderna ca la modelele de top. Totusi, ca masina de spalat rufe cu functii avansate la un pret bun, Beko WTV8734X0 este o alegere inspirata.</p>
+        <div data-pros-cons>
+          <div>
+            <h4 class="pros-title">Avantaje</h4>
+            <ul data-pros>
+          <li>Clasa energetica A+++ (-30%), consum foarte redus</li>
+          <li>Motor ProSmart Inverter, silentios si fiabil</li>
+          <li>Nivel de zgomot scazut la spalare si centrifugare</li>
+          <li>Functia SteamTech pentru igienizare si reducerea cutelor</li>
+          <li>Programe dedicate (Bumbac Igienic, BabyProtect)</li>
+          <li>Pret competitiv pentru functiile oferite</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cons-title">Dezavantaje</h4>
+            <ul data-cons>
+          <li>Calitatea materialelor exterioare nu este premium</li>
+          <li>Interfata poate parea putin datata</li>
+          <li>Durata ciclului Eco 40-60 este de aproximativ 3 ore 28 minute</li>
+          <li>Nu are conectivitate WiFi</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-review id="gorenje-ws6235r">
+        <span data-tag>Cel Mai Silentios</span>
+        <h2>Gorenje WS6235R</h2>
+        <div data-specs>
+          <span><strong>Capacitate:</strong> 6 kg</span>
+          <span><strong>Clasa energetica:</strong> A+++</span>
+          <span><strong>Nivel zgomot:</strong> 51 dB(A) spalare / 72 dB(A) centrifugare</span>
+          <span><strong>Consum:</strong> 174 kWh/an (aproximativ 0.7 kWh/ciclu)</span>
+          <span><strong>Dimensiuni:</strong> 60 x 85 x 44 cm</span>
+          <span><strong>Functii:</strong> SensoCare, AutoDosing, IonTech, Inverter PowerDrive, Fast Response, Program ExtraHygiene</span>
+        </div>
+        <p>Gorenje WS6235R are nivelul extrem de redus de zgomot si dimensiunile compacte, fiind o solutie ideala pentru spatiile mici sau pentru cei care pun pret pe liniste. Este o varianta buna daca cauti <strong>cele mai bune masini de spalat rufe</strong> silentioase.</p><p>Ce o face atat de silentioasa? Motorul Inverter PowerDrive si designul special al panoului lateral (WaveActive Drum) ajuta la reducerea vibratiilor si a zgomotului. La doar 51 dB in timpul spalarii, este una dintre cele mai discrete masini de pe piata. Viteza de centrifugare de 1200 rpm este standard, iar nivelul de zgomot la stoarcere (72 dB) este, bun.</p><p>Capacitatea de 6 kg o recomanda pentru persoane singure, cupluri sau familii mici. Dimensiunile compacte (adancime de doar 44 cm) permit integrarea sa usoara chiar si in baile sau bucatariile cu spatiu limitat. Clasa energetica A+++ este eficienta, iar consumul anual de 174 kWh este unul dintre cele mai bune pentru acest tip de aparat.</p><p>Functia SensoCare permite ajustarea parametrilor de spalare in functie de tipul de tesatura, asigurand o ingrijire optima. Programul ExtraHygiene utilizeaza aburul pentru a elimina bacteriile si alergenii. tehnologia IonTech poate ajuta la indepartarea petelor dificile si la dezinfectarea rufelor. Pretul se situeaza in segmentul mediu, in jur de 2000-2300 lei.</p><p>Pentru cine este potrivita? Pentru cei cu spatiu limitat, pentru cei care lucreaza acasa si au nevoie de o masina de spalat rufe silentioasa, sau pentru cupluri. Dezavantajele principale sunt capacitatea mai mica de 6 kg, care nu este potrivita pentru familii mari, si lipsa functiilor smart avansate sau a auto-dozarii de detergent, care ar fi fost un plus la acest nivel de pret.</p>
+        <div data-pros-cons>
+          <div>
+            <h4 class="pros-title">Avantaje</h4>
+            <ul data-pros>
+          <li>Nivel de zgomot extrem de scazut la spalare (51 dB)</li>
+          <li>Design compact, adancime de doar 44 cm</li>
+          <li>Clasa energetica A+++, consum redus</li>
+          <li>Motor Inverter PowerDrive fiabil si silentios</li>
+          <li>Program ExtraHygiene cu abur</li>
+          <li>Potrivita pentru spatii mici</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cons-title">Dezavantaje</h4>
+            <ul data-cons>
+          <li>Capacitate limitata de 6 kg</li>
+          <li>Pretul este moderat spre ridicat pentru capacitatea oferita</li>
+          <li>Lipsesc functiile smart (WiFi)</li>
+          <li>Programul de stoarcere poate fi mai putin eficient decat la modelele de top</li>
+          <li>Nu are functie de auto-dozare</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div data-comparison id="comparatie">
+        <h2>Comparatie</h2>
+        <p>Compara rapid cele mai bune masini de spalat rufe, pentru a te ajuta sa identifici modelul potrivit pentru tine.</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Capacitate</th>
+                <th>Clasa</th>
+                <th>Consum</th>
+                <th>Pret</th>
+                <th>Potrivit pentru</th>
+              </tr>
+            </thead>
+            <tbody>
+          <tr>
+            <td><strong>Bosch Serie 6 WAU28T80BY</strong></td>
+            <td>9 kg</td>
+            <td>A</td>
+            <td>49 kWh/100 cicluri</td>
+            <td>~3150 lei</td>
+            <td>Familii, Eficienta</td>
+          </tr>
+          <tr>
+            <td><strong>Samsung WW90T556AAW/LE</strong></td>
+            <td>9 kg</td>
+            <td>A</td>
+            <td>49 kWh/100 cicluri</td>
+            <td>~3350 lei</td>
+            <td>Modern, Smart</td>
+          </tr>
+          <tr>
+            <td><strong>LG F4WV709H1E</strong></td>
+            <td>9 kg</td>
+            <td>A</td>
+            <td>49 kWh/100 cicluri</td>
+            <td>~4000 lei</td>
+            <td>Premium, Ingrijire Rufe</td>
+          </tr>
+          <tr>
+            <td><strong>Arctic EF8124AD++</strong></td>
+            <td>8 kg</td>
+            <td>A++</td>
+            <td>257 kWh/an</td>
+            <td>~1400 lei</td>
+            <td>Buget Redus</td>
+          </tr>
+          <tr>
+            <td><strong>Beko WTV8734X0</strong></td>
+            <td>8 kg</td>
+            <td>A+++ (-30%)</td>
+            <td>39 kWh/100 cicluri</td>
+            <td>~2350 lei</td>
+            <td>Raport Calitate-Pret</td>
+          </tr>
+          <tr>
+            <td><strong>Gorenje WS6235R</strong></td>
+            <td>6 kg</td>
+            <td>A+++</td>
+            <td>174 kWh/an</td>
+            <td>~2150 lei</td>
+            <td>Spatii Mici, Silentioasa</td>
+          </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div data-guide id="sfaturi">
+        <h2>Cum alegi cea mai buna masina de spalat rufe pentru tine?</h2>
+        <p>Alegerea masinii de spalat potrivite este o decizie importanta. Iata cativa pasi esentiali:</p><h3>Ce capacitate de incarcare iti trebuie?</h3><p>Capacitatea se masoara in kilograme si depinde de numarul de persoane din familie. Pentru 1-2 persoane, 5-6 kg sunt suficiente. Pentru 3-4 persoane, 7-8 kg sunt ideale. Familiile mai mari sau cei care spala pilote si cuverturi frecvent ar trebui sa opteze pentru 9-10 kg. Nu uita ca o masina suprasolicitata se uzeaza mai repede si nu curata eficient.</p><h3>Clasa energetica si consumul de apa</h3><p>Clasa energetica indica eficienta aparatului. Modelele cu clasa A sunt cele mai eficiente. Un consum mai mic inseamna facturi mai mici la electricitate. Cauta informatii despre consumul de energie (kWh/an sau kWh/ciclu) si consumul de apa (litri/ciclu). Un ciclu Eco 40-60 este standardul pentru comparatii.</p><h3>Viteza de centrifugare</h3><p>Exprimata in rotatii pe minut (rpm), viteza de centrifugare influenteaza gradul de umiditate ramas in haine dupa spalare. 1000-1200 rpm sunt suficiente pentru majoritatea nevoilor. 1400-1600 rpm inseamna haine mai uscate, economisind timp la uscare. Totusi, vitezele mari pot genera mai mult zgomot si uzura.</p><h3>Functii suplimentare si programe</h3><p>Multe masini vin cu functii utile: program rapid pentru rufe putin murdare, program igienizare cu aburi pentru alergici sau bebelusi, program special pentru lana sau delicate, pornire intarziata. Functiile smart (conectivitate WiFi) permit controlul de pe mobil, dar cresc si pretul. Evalueaza ce functii chiar folosesti.</p><p>In final, nu ignora nivelul de zgomot (masurat in dB), mai ales daca masina va fi amplasata langa dormitoare sau spatii de locuit. Consultati recenziile si comparati specificatiile pentru a gasi cea mai buna masina de spalat rufe pentru bugetul si nevoile dumneavoastra.</p>
+      </div>
+
+      <div data-faq id="faq">
+        <h2>Intrebari Frecvente</h2>
+
+        <details id="faq-0">
+          <summary>Cat consuma in medie o masina de spalat rufe pe an?</summary>
+          <div class="faq-answer">O masina de spalat rufe clasa A+++ consuma in jur de 150-200 kWh pe an pentru un utilizator mediu (aprox. 220 cicluri). Modelele mai vechi sau cu clasa energetica inferioara pot consuma peste 300 kWh/an. Costul lunar la electricitate este intre 5 si 15 lei, in functie de tariful la energie.</div>
+        </details>
+
+        <details id="faq-1">
+          <summary>Ce inseamna clasa energetica A la masinile de spalat rufe?</summary>
+          <div class="faq-answer">Clasa energetica A este cea mai eficienta categorie conform noilor standarde europene (de la A la G). Aceasta indica un consum de energie electrica foarte scazut per ciclu de spalare, contribuind la reducerea costurilor si la protejarea mediului. Modelele cu A+++ conform vechii clasificari se incadreaza acum in clasele A, B sau C.</div>
+        </details>
+
+        <details id="faq-2">
+          <summary>Este mai buna o masina de spalat cu 1000 rpm sau 1400 rpm?</summary>
+          <div class="faq-answer">O masina cu 1400 rpm stoarce rufele mai eficient, lasandu-le mai uscate decat una cu 1000 rpm. Aceasta inseamna timp mai scurt de uscare. Totusi, vitezele mari genereaza mai mult zgomot si pot uza tesaturile mai repede. Pentru majoritatea utilizatorilor, 1200-1400 rpm reprezinta un echilibru bun.</div>
+        </details>
+
+        <details id="faq-3">
+          <summary>Merita o masina de spalat cu functie de aburi?</summary>
+          <div class="faq-answer">Da, functia de aburi (steam) este utila pentru igienizarea profunda a hainelor, eliminarea alergenilor si reducerea cutelor. Este recomandata persoanelor cu alergii, familiilor cu copii mici sau celor care doresc sa reduca timpul petrecut la calcat. Poate creste putin consumul de apa si durata ciclului.</div>
+        </details>
+
+        <details id="faq-4">
+          <summary>Care este diferenta dintre motorul Inverter si cel standard?</summary>
+          <div class="faq-answer">Motorul Inverter (ex: Digital Inverter, EcoSilence Drive, Direct Drive) nu are perii de carbon, fiind mai silentios, mai eficient energetic si mai durabil decat motoarele conventionale. Acestea au, de obicei, o garantie extinsa (pana la 10 ani) si sunt mai rezistente la uzura, facand masina de spalat rufe mai fiabila pe termen lung.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Author card -->
+    <div class="pin-author-card">
+      <div class="pin-author-avatar">RT</div>
+      <div>
+        <div class="pin-author-name">Raluca Tanase</div>
+        <div class="pin-author-bio">Raluca scrie despre electrocasnice de peste 5 ani, cu accent pe masini de spalat si frigidere.</div>
+      </div>
+    </div>
+
+    <PrevNextNav currentSlug="cele-mai-bune-masini-de-spalat-rufe" articles={allArticles} />
+
+    <SimilarArticles
+      currentSlug="cele-mai-bune-masini-de-spalat-rufe"
+      currentCategory="masini-de-spalat"
+      articles={allArticles}
+    />
+  </article>
+</Layout>
+
+<script>
+  // Close TOC when clicking a link
+  const tocDetails = document.querySelector('.pin-toc');
+  tocDetails?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      (tocDetails as HTMLDetailsElement).open = false;
+    });
+  });
+</script>

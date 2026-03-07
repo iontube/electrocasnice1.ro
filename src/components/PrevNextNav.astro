@@ -1,0 +1,32 @@
+---
+interface Props {
+  currentSlug: string;
+  articles: { title: string; slug: string }[];
+}
+
+const { currentSlug, articles } = Astro.props;
+
+const excludeSlugs = new Set(['index', 'contact', 'sitemap', '404', 'disclaimer-afiliere', 'politica-cookies', 'politica-de-confidentialitate', 'termeni-si-conditii']);
+const filtered = articles.filter(a => !excludeSlugs.has(a.slug));
+const currentIndex = filtered.findIndex(a => a.slug === currentSlug);
+
+const prev = currentIndex > 0 ? filtered[currentIndex - 1] : null;
+const next = currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
+---
+
+{(prev || next) && (
+  <nav class="prev-next-nav">
+    {prev ? (
+      <a href={`/${prev.slug}/`} class="prev-next-link prev">
+        <span class="prev-next-label">Articolul anterior</span>
+        <span class="prev-next-title">{prev.title}</span>
+      </a>
+    ) : <div />}
+    {next ? (
+      <a href={`/${next.slug}/`} class="prev-next-link next">
+        <span class="prev-next-label">Urmatorul articol</span>
+        <span class="prev-next-title">{next.title}</span>
+      </a>
+    ) : <div />}
+  </nav>
+)}

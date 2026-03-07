@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — Electrocasnice1.ro"
+  description="Contacteaza echipa Electrocasnice1.ro pentru intrebari despre electrocasnice, sugestii sau colaborari."
+  breadcrumbs={[
+    { name: 'Acasa', url: '/' },
+    { name: 'Contact', url: '/contact/' }
+  ]}
+>
+  <div class="container-narrow contact-page">
+    <h1>Contact</h1>
+    <p>Ai o intrebare despre un produs sau vrei sa ne trimiti o sugestie? Suntem aici sa te ajutam.</p>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <h2>Email</h2>
+        <p><a href="mailto:contact@electrocasnice1.ro">contact@electrocasnice1.ro</a></p>
+      </div>
+      <div class="contact-card">
+        <h2>Program</h2>
+        <p>Raspundem la mesaje in termen de 24-48 de ore, de luni pana vineri.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <h2>Despre noi</h2>
+      <p>Electrocasnice1.ro este un site informativ dedicat electrocasnicelor din Romania. Comparam produse, analizam specificatii si oferim pareri obiective pentru a te ajuta sa faci cea mai buna alegere.</p>
+      <p>Articolele noastre acopera masini de spalat, frigidere, cuptoare, aspiratoare, masini de spalat vase si electrocasnice mici — toate cu preturi actualizate si informatii relevante pentru piata din Romania.</p>
+    </div>
+  </div>
+</Layout>

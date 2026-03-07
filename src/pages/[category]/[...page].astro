@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+  function slugify(text: string) {
+    return text.toLowerCase()
+      .replace(/[ăâ]/g, 'a').replace(/[îi]/g, 'i').replace(/[șş]/g, 's').replace(/[țţ]/g, 't')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  const categories = [
+    { name: 'Masini de Spalat Rufe', slug: 'masini-de-spalat', description: 'Pareri, preturi si comparatii masini de spalat rufe — modele automate, semi-automate si cu uscator.' },
+    { name: 'Frigidere si Combine', slug: 'frigidere', description: 'Frigidere, combine frigorifice si lazi frigorifice — preturi si pareri actualizate 2026.' },
+    { name: 'Cuptoare si Aragazuri', slug: 'cuptoare-aragazuri', description: 'Cuptoare electrice, aragazuri si plite incorporabile — comparatii si preturi pentru bucataria ta.' },
+    { name: 'Aspiratoare', slug: 'aspiratoare', description: 'Aspiratoare verticale, robot si cu sac — pareri reale si preturi din Romania.' },
+    { name: 'Masini de Spalat Vase', slug: 'masini-spalat-vase', description: 'Masini de spalat vase incorporabile si de sine statatoare — preturi si pareri 2026.' },
+    { name: 'Electrocasnice Mici', slug: 'electrocasnice-mici', description: 'Blendere, mixere, espressoare, friteuze cu aer si alte aparate mici de bucatarie.' },
+  ];
+
+  const allPages = import.meta.glob('../**/*.astro', { eager: true });
+  const excludePages = new Set(['index', 'contact', 'cookies', 'privacy-policy', 'privacy', 'gdpr', 'sitemap', '404', 'about', 'terms', 'disclaimer-afiliere', 'politica-cookies', 'politica-de-confidentialitate', 'politica-confidentialitate', 'termeni-si-conditii']);
+  const excludeDirs = new Set(['blog', 'masini-de-spalat', 'frigidere', 'cuptoare-aragazuri', 'aspiratoare', 'masini-spalat-vase', 'electrocasnice-mici']);
+
+  const articles: any[] = [];
+  for (const [path, mod] of Object.entries(allPages)) {
+    const parts = path.replace('../', '').replace('.astro', '').split('/');
+    if (parts.length > 1 && (excludeDirs.has(parts[0]) || parts[parts.length - 1].startsWith('['))) continue;
+    const name = parts[parts.length - 1];
+    if (excludePages.has(name)) continue;
+    const frontmatter = (mod as any).frontmatter;
+    if (frontmatter?.title) articles.push(frontmatter);
+  }
+
+  return categories.flatMap(cat => {
+    const catArticles = articles
+      .filter(a => a.categorySlug === cat.slug)
+      .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime());
+
+    return paginate(catArticles, {
+      params: { category: cat.slug },
+      props: { categoryName: cat.name, categoryDescription: cat.description },
+      pageSize: 12
+    });
+  });
+}
+
+const { page, categoryName, categoryDescription } = Astro.props;
+const { category } = Astro.params;
+---
+
+<Layout
+  title={`${categoryName} 2026 — Preturi si Pareri${page.currentPage > 1 ? ` — Pagina ${page.currentPage}` : ''}`}
+  description={categoryDescription}
+  breadcrumbs={[
+    { name: 'Acasa', url: '/' },
+    { name: categoryName, url: `/${category}/` }
+  ]}
+>
+  <div class="pin-container">
+    <div class="category-header">
+      <h1>{categoryName}</h1>
+      <p>{categoryDescription}</p>
+    </div>
+
+    {page.data.length > 0 ? (
+      <div class="pin-grid">
+        {page.data.map((article: any) => (
+          <ArticleCard
+            title={article.title}
+            slug={article.slug}
+            excerpt={article.excerpt}
+            image={article.image}
+            category={article.category}
+            categorySlug={article.categorySlug}
+            date={article.date}
+          />
+        ))}
+      </div>
+    ) : (
+      <p style="text-align: center; color: var(--color-text-muted); padding: 3rem 0;">Articolele din aceasta categorie vor fi publicate in curand.</p>
+    )}
+
+    {page.lastPage > 1 && (
+      <div class="pagination">
+        {page.url.prev && <a href={page.url.prev}>&laquo; Inapoi</a>}
+        {Array.from({ length: page.lastPage }, (_, i) => i + 1).map(num => (
+          num === page.currentPage
+            ? <span class="current">{num}</span>
+            : <a href={num === 1 ? `/${category}/` : `/${category}/${num}/`}>{num}</a>
+        ))}
+        {page.url.next && <a href={page.url.next}>Inainte &raquo;</a>}
+      </div>
+    )}
+  </div>
+</Layout>

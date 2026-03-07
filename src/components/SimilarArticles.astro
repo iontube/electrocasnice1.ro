@@ -1,0 +1,42 @@
+---
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  currentSlug: string;
+  currentCategory: string;
+  articles: {
+    title: string;
+    slug: string;
+    excerpt?: string;
+    image?: string;
+    category?: string;
+    categorySlug?: string;
+    date?: string;
+  }[];
+}
+
+const { currentSlug, currentCategory, articles } = Astro.props;
+
+const otherArticles = articles.filter(a => a.slug !== currentSlug);
+const sameCategory = otherArticles.filter(a => a.categorySlug === currentCategory);
+const differentCategory = otherArticles.filter(a => a.categorySlug !== currentCategory);
+const selected = [...sameCategory, ...differentCategory].slice(0, 3);
+---
+
+{selected.length > 0 && (
+  <div class="similar-articles">
+    <h3>Articole similare</h3>
+    <div class="similar-grid">
+      {selected.map(article => (
+        <ArticleCard
+          title={article.title}
+          slug={article.slug}
+          image={article.image}
+          category={article.category}
+          categorySlug={article.categorySlug}
+          date={article.date}
+        />
+      ))}
+    </div>
+  </div>
+)}

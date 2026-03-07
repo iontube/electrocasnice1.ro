@@ -1,0 +1,21 @@
+{
+  "name": "electrocasnice1-ro",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/generate-sitemaps.js",
+    "preview": "astro preview",
+    "generate": "node scripts/generate-batch.js",
+    "auto-generate": "node scripts/auto-generate.js"
+  },
+  "dependencies": {
+    "astro": "^5.16.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18"
+  }
+}

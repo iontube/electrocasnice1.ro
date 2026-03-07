@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  { name: 'Masini de Spalat Rufe', slug: 'masini-de-spalat' },
+  { name: 'Frigidere si Combine', slug: 'frigidere' },
+  { name: 'Cuptoare si Aragazuri', slug: 'cuptoare-aragazuri' },
+  { name: 'Aspiratoare', slug: 'aspiratoare' },
+  { name: 'Masini de Spalat Vase', slug: 'masini-spalat-vase' },
+  { name: 'Electrocasnice Mici', slug: 'electrocasnice-mici' },
+];
+
+const excludePages = new Set(['index', 'contact', 'cookies', 'privacy-policy', 'privacy', 'gdpr', 'sitemap', '404', 'about', 'terms', 'disclaimer-afiliere', 'politica-cookies', 'politica-de-confidentialitate', 'politica-confidentialitate', 'termeni-si-conditii']);
+const excludeDirs = new Set(['blog', 'masini-de-spalat', 'frigidere', 'cuptoare-aragazuri', 'aspiratoare', 'masini-spalat-vase', 'electrocasnice-mici']);
+
+const allPages = import.meta.glob('./**/*.astro', { eager: true });
+const articles: any[] = [];
+
+for (const [path, mod] of Object.entries(allPages)) {
+  const parts = path.replace('./', '').replace('.astro', '').split('/');
+  if (parts.length > 1 && (excludeDirs.has(parts[0]) || parts[parts.length - 1].startsWith('['))) continue;
+  const name = parts[parts.length - 1];
+  if (excludePages.has(name)) continue;
+  const frontmatter = (mod as any).frontmatter;
+  if (frontmatter?.title) articles.push(frontmatter);
+}
+
+articles.sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime());
+---
+
+<Layout
+  title="Sitemap — Electrocasnice1.ro"
+  description="Harta site-ului Electrocasnice1.ro. Gaseste rapid toate articolele si paginile disponibile."
+  breadcrumbs={[
+    { name: 'Acasa', url: '/' },
+    { name: 'Sitemap', url: '/sitemap/' }
+  ]}
+>
+  <div class="container-narrow sitemap-page">
+    <h1>Sitemap</h1>
+    <p>Toate paginile disponibile pe Electrocasnice1.ro.</p>
+
+    <div class="sitemap-grid">
+      <div class="sitemap-section">
+        <h2>Categorii</h2>
+        {categories.map(cat => (
+          <a href={`/${cat.slug}/`}>{cat.name}</a>
+        ))}
+      </div>
+
+      <div class="sitemap-section">
+        <h2>Pagini</h2>
+        <a href="/">Acasa</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/politica-de-confidentialitate/">Politica de Confidentialitate</a>
+        <a href="/politica-cookies/">Politica Cookies</a>
+        <a href="/termeni-si-conditii/">Termeni si Conditii</a>
+        <a href="/disclaimer-afiliere/">Disclaimer Afiliere</a>
+      </div>
+    </div>
+
+    {articles.length > 0 && (
+      <div class="sitemap-section" style="margin-top: 2rem;">
+        <h2>Articole ({articles.length})</h2>
+        {articles.map(article => (
+          <a href={`/${article.slug}/`}>{article.title}</a>
+        ))}
+      </div>
+    )}
+  </div>
+</Layout>

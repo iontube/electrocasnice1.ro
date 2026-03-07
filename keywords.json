@@ -1,0 +1,1040 @@
+{
+  "categories": [
+    {
+      "name": "Masini de Spalat Rufe",
+      "slug": "masini-de-spalat",
+      "description": "Pareri, preturi si comparatii masini de spalat rufe — modele automate, slim si cu uscator"
+    },
+    {
+      "name": "Frigidere si Combine",
+      "slug": "frigidere",
+      "description": "Frigidere, combine frigorifice si lazi frigorifice — preturi si pareri actualizate 2026"
+    },
+    {
+      "name": "Cuptoare si Aragazuri",
+      "slug": "cuptoare-aragazuri",
+      "description": "Cuptoare electrice, aragazuri si plite incorporabile — comparatii si preturi"
+    },
+    {
+      "name": "Aspiratoare",
+      "slug": "aspiratoare",
+      "description": "Aspiratoare verticale, robot si cu sac — pareri reale si preturi din Romania"
+    },
+    {
+      "name": "Masini de Spalat Vase",
+      "slug": "masini-spalat-vase",
+      "description": "Masini de spalat vase incorporabile si de sine statatoare — preturi si pareri 2026"
+    },
+    {
+      "name": "Electrocasnice Mici",
+      "slug": "electrocasnice-mici",
+      "description": "Blendere, mixere, espressoare, friteuze cu aer si alte aparate mici de bucatarie"
+    }
+  ],
+  "pending": [
+    {
+      "keyword": "cea mai buna masina de spalat rufe 8 kg",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat rufe ieftine",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat rufe slim",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat cu uscator",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat sub 1500 lei",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat rufe 10 kg",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat Arctic",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat Samsung",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat Beko",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat LG",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat silentioasa",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat cu abur",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat Bosch",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat cu incarcare verticala",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat clasa A",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat Whirlpool",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat 7 kg",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat cu motor inverter",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat Electrolux",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat sub 2000 lei",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat 9 kg",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat pentru familie mare",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat Gorenje",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat cu WiFi",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat cu uscator incorporat",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat consum redus",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat Candy",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat pentru garsoniera",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat 12 kg",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat Indesit",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat cu program rapid",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat sub 1000 lei",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "top masini de spalat Haier",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat"
+    },
+    {
+      "keyword": "cel mai bun frigider",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cele mai bune combine frigorifice",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider side by side",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "top frigidere ieftine sub 1500 lei",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica No Frost",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider Arctic",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cele mai bune frigidere Samsung",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica sub 2000 lei",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "top combine frigorifice Beko",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider LG No Frost",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cele mai bune frigidere incorporabile",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica Bosch",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "top frigidere cu doua usi",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider Whirlpool",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cele mai bune lazi frigorifice",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica Electrolux",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider cu dispenser de apa",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "top frigidere Gorenje retro",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica 300 litri",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider Liebherr",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cele mai bune combine frigorifice clasa A",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider silentios",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "top frigidere mici pentru garsoniera",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica 400 litri",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider Samsung side by side",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cele mai bune frigidere consum redus",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica Indesit",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider cu congelare rapida",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "top combine frigorifice Candy",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun frigider sub 1000 lei",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica sub 3000 lei",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun cuptor electric incorporabil",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cele mai bune aragazuri",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita cu inductie",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor electric Beko",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top aragazuri ieftine sub 1000 lei",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor incorporabil Bosch",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita inductie 4 zone",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top cuptoare electrice cu aer cald",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun aragaz Arctic",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cele mai bune cuptoare cu microunde",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita vitroceramica",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor Samsung incorporabil",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top aragazuri cu cuptor electric si plita gaz",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor Whirlpool",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita inductie ieftina",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top cuptoare cu autocuratare pirolitica",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun aragaz Gorenje",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cele mai bune plite pe gaz incorporabile",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor electric sub 1000 lei",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita Franke inductie",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top cuptoare cu microunde Samsung",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun aragaz Beko",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cele mai bune cuptoare electrice mari 70 litri",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor Electrolux",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita inductie Electrolux",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top aragazuri Hansa",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor incorporabil sub 1500 lei",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita inductie vs vitroceramica",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun aragaz cu cuptor electric 50 cm",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "top cuptoare Teka incorporabile",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun aspirator vertical fara fir",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare robot",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator cu sac",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare Dyson",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot cu spalare",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare verticale ieftine",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator fara sac Rowenta",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare robot Roborock",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator Bosch fara sac",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare verticale Samsung",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot ieftin",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare Philips cu sac",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator vertical Dreame",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare robot cu statie de golire",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator Karcher",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare cu spalare covoare",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator vertical LG",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare robot Xiaomi",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator silentios",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare verticale cu acumulator",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot cu navigare laser",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare Philips fara sac",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot Ecovacs",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare verticale Dyson",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator cu filtrare apa",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare pentru par de animale",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator Rowenta cu sac",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare robot premium",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator vertical sub 1000 lei",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare de mana portabile",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator fara fir Electrolux",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "top aspiratoare verticale Rowenta",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase incorporabile 60 cm",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Beko",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase ieftine",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Bosch",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase 45 cm",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Arctic",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase de sine statatoare",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Whirlpool",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase 12 seturi",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Samsung",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase Electrolux",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase silentioasa",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase 14 seturi",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Gorenje",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase clasa A",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase compacta",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase consum redus",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase sub 2000 lei",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase Candy",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase cu program rapid",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase Indesit",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase incorporabila 45 cm",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase cu uscare automata",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase LG",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase 10 seturi",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase Bosch 60 cm",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase cu WiFi",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase cu igienizare",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cele mai bune masini de spalat vase Haier",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cea mai buna friteuza cu aer cald",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor automat",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun blender",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cele mai bune friteuze cu aer Philips",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor DeLonghi",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun mixer vertical Bosch",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cele mai bune friteuze cu aer ieftine",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor cu capsule",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun robot de bucatarie",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna friteuza cu aer 5 litri",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun aparat de facut paine",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun fierbator electric",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor Jura",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cele mai bune toastere",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun storcator de fructe slow juicer",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna friteuza cu aer Tefal",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor Krups",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun multicooker",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun gratar electric de interior",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun mixer planetar",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun aparat de gatit cu abur",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun fier de calcat cu abur",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cele mai bune sandwich makere",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun robot de bucatarie Moulinex",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna friteuza cu aer 8 litri",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor Saeco",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun aparat de facut waffle",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun blender Nutribullet",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna masina de tocat carne electrica",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna statie de calcat Philips",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna rasnita de cafea electrica",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun espressor Philips automat",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cea mai buna friteuza cu aer dubla",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun aparat SodaStream",
+      "category": "Electrocasnice Mici",
+      "categorySlug": "electrocasnice-mici"
+    },
+    {
+      "keyword": "cel mai bun frigider American",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cea mai buna combina frigorifica Haier",
+      "category": "Frigidere si Combine",
+      "categorySlug": "frigidere"
+    },
+    {
+      "keyword": "cel mai bun cuptor cu grill incorporabil",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cea mai buna plita inductie Samsung",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun cuptor electric de masa",
+      "category": "Cuptoare si Aragazuri",
+      "categorySlug": "cuptoare-aragazuri"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot cu mop",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cea mai buna masina de spalat vase sub 1500 lei",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "top masini de spalat vase Beko incorporabile",
+      "category": "Masini de Spalat Vase",
+      "categorySlug": "masini-spalat-vase"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot sub 2000 lei",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    }
+  ],
+  "completed": [
+    {
+      "keyword": "cele mai bune masini de spalat rufe",
+      "category": "Masini de Spalat Rufe",
+      "categorySlug": "masini-de-spalat",
+      "date": "2026-03-07T14:19:39.771Z",
+      "modifiedDate": "2026-03-07T14:19:39.771Z"
+    }
+  ]
+}

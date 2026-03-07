@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  excerpt?: string;
+  image?: string;
+  category?: string;
+  categorySlug?: string;
+  date?: string;
+  author?: string;
+  variant?: 'grid' | 'featured' | 'list';
+}
+
+const { title, slug, excerpt, image, category, categorySlug, date, author, variant = 'grid' } = Astro.props;
+
+const formattedDate = date ? new Date(date).toLocaleDateString('ro-RO', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric'
+}) : '';
+
+const cleanExcerpt = excerpt ? excerpt.replace(/<[^>]*>/g, '').slice(0, 160) : '';
+---
+
+{variant === 'featured' ? (
+  <a href={`/${slug}/`} class="pin-featured-card">
+    <div class="pin-featured-img">
+      {image ? (
+        <img src={image} alt={title} loading="lazy" width="900" height="500" />
+      ) : (
+        <div class="pin-img-placeholder"></div>
+      )}
+      {category && categorySlug && (
+        <span class="pin-card-tag" data-cat={categorySlug}>{category}</span>
+      )}
+    </div>
+    <div class="pin-featured-body">
+      <h2 class="pin-featured-title">{title}</h2>
+      {cleanExcerpt && <p class="pin-featured-excerpt">{cleanExcerpt}</p>}
+      <div class="pin-card-meta">
+        {author && <span class="pin-card-author">{author}</span>}
+        {formattedDate && <time>{formattedDate}</time>}
+      </div>
+    </div>
+  </a>
+) : variant === 'list' ? (
+  <a href={`/${slug}/`} class="pin-list-card">
+    <div class="pin-list-card-body">
+      {category && categorySlug && (
+        <span class="pin-card-tag small" data-cat={categorySlug}>{category}</span>
+      )}
+      <h3 class="pin-list-card-title">{title}</h3>
+      <div class="pin-card-meta">
+        {formattedDate && <time>{formattedDate}</time>}
+      </div>
+    </div>
+    {image && (
+      <div class="pin-list-card-img">
+        <img src={image} alt={title} loading="lazy" width="120" height="80" />
+      </div>
+    )}
+  </a>
+) : (
+  <a href={`/${slug}/`} class="pin-card">
+    <div class="pin-card-img">
+      {image ? (
+        <img src={image} alt={title} loading="lazy" width="800" height="500" />
+      ) : (
+        <div class="pin-img-placeholder"></div>
+      )}
+    </div>
+    <div class="pin-card-body">
+      {category && categorySlug && (
+        <span class="pin-card-tag" data-cat={categorySlug}>{category}</span>
+      )}
+      <h3 class="pin-card-title">{title}</h3>
+      {cleanExcerpt && <p class="pin-card-excerpt">{cleanExcerpt}</p>}
+      <div class="pin-card-meta">
+        {author && <span class="pin-card-author">{author}</span>}
+        {formattedDate && <time>{formattedDate}</time>}
+      </div>
+    </div>
+  </a>
+)}
