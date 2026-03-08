@@ -503,11 +503,6 @@
       "categorySlug": "cuptoare-aragazuri"
     },
     {
-      "keyword": "cel mai bun aspirator vertical fara fir",
-      "category": "Aspiratoare",
-      "categorySlug": "aspiratoare"
-    },
-    {
       "keyword": "cele mai bune aspiratoare robot",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
@@ -1035,6 +1030,11 @@
       "categorySlug": "masini-de-spalat",
       "date": "2026-03-07T14:19:39.771Z",
       "modifiedDate": "2026-03-07T14:19:39.771Z"
+    },
+    {
+      "keyword": "cel mai bun aspirator vertical fara fir",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
     }
   ]
 }
