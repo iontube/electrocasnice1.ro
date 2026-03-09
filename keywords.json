@@ -503,11 +503,6 @@
       "categorySlug": "cuptoare-aragazuri"
     },
     {
-      "keyword": "cele mai bune aspiratoare robot",
-      "category": "Aspiratoare",
-      "categorySlug": "aspiratoare"
-    },
-    {
       "keyword": "cel mai bun aspirator cu sac",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
@@ -1033,6 +1028,11 @@
     },
     {
       "keyword": "cel mai bun aspirator vertical fara fir",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cele mai bune aspiratoare robot",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
     }
