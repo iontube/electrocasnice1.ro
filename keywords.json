@@ -503,11 +503,6 @@
       "categorySlug": "cuptoare-aragazuri"
     },
     {
-      "keyword": "cel mai bun aspirator robot cu spalare",
-      "category": "Aspiratoare",
-      "categorySlug": "aspiratoare"
-    },
-    {
       "keyword": "cele mai bune aspiratoare verticale ieftine",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
@@ -1033,6 +1028,11 @@
     },
     {
       "keyword": "top aspiratoare Dyson",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator robot cu spalare",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
     }
