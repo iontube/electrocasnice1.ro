@@ -503,11 +503,6 @@
       "categorySlug": "cuptoare-aragazuri"
     },
     {
-      "keyword": "cel mai bun aspirator fara sac Rowenta",
-      "category": "Aspiratoare",
-      "categorySlug": "aspiratoare"
-    },
-    {
       "keyword": "top aspiratoare robot Roborock",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
@@ -1033,6 +1028,11 @@
     },
     {
       "keyword": "cele mai bune aspiratoare verticale ieftine",
+      "category": "Aspiratoare",
+      "categorySlug": "aspiratoare"
+    },
+    {
+      "keyword": "cel mai bun aspirator fara sac Rowenta",
       "category": "Aspiratoare",
       "categorySlug": "aspiratoare"
     }
