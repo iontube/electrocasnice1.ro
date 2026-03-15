@@ -695,7 +695,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 1.5rem 1.5rem 0;
 }
 
 .pin-article-hero img {
