@@ -33,19 +33,21 @@ body {
 }
 
 /* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #18171c;
-    --color-bg-alt: #222127;
-    --color-border: #333239;
-    --color-text: #eeedf0;
-    --color-text-muted: #9b9aa0;
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #18171c;
+      --color-bg-alt: #222127;
+      --color-border: #333239;
+      --color-text: #eeedf0;
+      --color-text-muted: #9b9aa0;
+    }
+    .pin-featured-card, .pin-card, .pin-list-card,
+    .cookie-banner, .contact-card { background: var(--color-bg-alt); }
+    .pin-header { background: rgba(24, 23, 28, 0.95); }
+    .pin-footer { background: #111015; }
+    .pin-img-placeholder { background: var(--color-bg-alt); }
   }
-  .pin-featured-card, .pin-card, .pin-list-card,
-  .cookie-banner, .contact-card { background: var(--color-bg-alt); }
-  .pin-header { background: rgba(24, 23, 28, 0.95); }
-  .pin-footer { background: #111015; }
-  .pin-img-placeholder { background: var(--color-bg-alt); }
 }
 
 h1, h2, h3, h4, h5, h6 {
