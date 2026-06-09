@@ -16,12 +16,12 @@ const money = (n) => Number(n).toLocaleString('ro-RO', { minimumFractionDigits: 
 const base = `/magazin/${mslug}/`;
 const pageMod = items.reduce((m, p) => (p.modified && p.modified > m ? p.modified : m), '2026-04-01');
 const title = currentPage === 1 ? `Electrocasnice la ${mName}: ${total} oferte | Electrocasnice1.ro` : `Electrocasnice la ${mName} – pagina ${currentPage} | Electrocasnice1.ro`;
-const desc = `Toate mașinile de spălat ieftine disponibile la ${mName}: ${total} de modele, cu prețuri actualizate.`;
+const desc = `Toate electrocasnicele ieftine disponibile la ${mName}: ${total} de modele, cu prețuri actualizate.`;
 ---
 <Layout title={title} description={desc} modified={pageMod}>
   <Nav />
   <section class="rec-sec"><div class="wrap">
-    <nav class="rec-bc"><a href="/">Acasă</a> › <a href="/electrocasnice/">Electrocasnice</a> › <span>{mName}</span></nav>
+    <nav class="rec-bc"><a href="/">Acasă</a> › <span>{mName}</span></nav>
     <div class="sec-head"><span class="sec-head__tag">Magazin</span><h1>Electrocasnice la {mName}</h1>
       <p><strong>{total}</strong> de electrocasnice la {mName}, cu prețuri actualizate periodic.{lastPage > 1 ? ` Pagina ${currentPage} din ${lastPage}.` : ''}</p></div>
     <div class="products">{items.map((p) => (
@@ -37,7 +37,7 @@ const desc = `Toate mașinile de spălat ieftine disponibile la ${mName}: ${tota
       {currentPage > 1 ? <a class="rec-pg" href={currentPage === 2 ? base : `${base}${currentPage - 1}/`}>← Anterioarele</a> : <span class="rec-pg rec-pg--off">← Anterioarele</span>}
       <span class="rec-pg-now">Pagina {currentPage} / {lastPage}</span>
       {currentPage < lastPage ? <a class="rec-pg" href={`${base}${currentPage + 1}/`}>Următoarele →</a> : <span class="rec-pg rec-pg--off">Următoarele →</span>}</nav>)}
-    <p class="rec-back"><a href="/electrocasnice/">← Vezi toate mașinile de spălat</a></p>
+    <p class="rec-back"><a href="/">← Înapoi la pagina principală</a></p>
   </div></section>
   <Footer />
 </Layout>

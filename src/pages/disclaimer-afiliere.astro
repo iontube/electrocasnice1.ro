@@ -1,29 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
-
-<Layout
-  title="Disclaimer Afiliere — Electrocasnice1.ro"
-  description="Informatii despre programele de afiliere utilizate de Electrocasnice1.ro si cum functioneaza link-urile de afiliere."
-  breadcrumbs={[
-    { name: 'Acasa', url: '/' },
-    { name: 'Disclaimer Afiliere', url: '/disclaimer-afiliere/' }
-  ]}
->
-  <div class="container-narrow legal-page">
-    <h1>Disclaimer Afiliere</h1>
-    <p>Ultima actualizare: Martie 2026</p>
-
-    <h2>Link-uri de afiliere</h2>
-    <p>Electrocasnice1.ro participa la programe de afiliere cu magazine online din Romania. Aceasta inseamna ca unele link-uri de pe site sunt link-uri de afiliere — cand faci o achizitie prin aceste link-uri, noi putem primi un comision, fara niciun cost suplimentar pentru tine.</p>
-
-    <h2>Independenta editoriala</h2>
-    <p>Comisioanele de afiliere nu influenteaza parerile si recenziile noastre. Toate articolele sunt scrise pe baza cercetarii independente, a specificatiilor tehnice si a feedback-ului utilizatorilor.</p>
-
-    <h2>Transparenta</h2>
-    <p>Suntem transparenti in legatura cu relatiile noastre de afiliere. Preturile afisate pe site sunt orientative si pot diferi de preturile actuale din magazine.</p>
-
-    <h2>Intrebari</h2>
-    <p>Pentru orice intrebari legate de programul nostru de afiliere, ne poti contacta la <a href="mailto:contact@electrocasnice1.ro">contact@electrocasnice1.ro</a>.</p>
+<Layout title="Disclaimer afiliere – electrocasnice1.ro" description="Informatii despre link-urile de afiliere de pe electrocasnice1.ro.">
+  <Nav />
+  <div class="legal">
+    <div class="wrap">
+      <a href="/" class="back-link">&larr; Inapoi</a>
+      <h1>Disclaimer afiliere</h1>
+      <p>electrocasnice1.ro participa in programe de afiliere cu magazine online din Romania. Cand achizitionezi un produs prin link-urile noastre, putem primi un comision.</p>
+      <h2>Ce inseamna asta pentru tine?</h2>
+      <ul>
+        <li>Nu platesti nimic in plus - pretul este acelasi</li>
+        <li>Comisionul nu influenteaza recomandarile noastre</li>
+        <li>Selectam produsele pe baza specificatiilor si a raportului calitate-pret</li>
+      </ul>
+      <h2>De ce avem link-uri de afiliere?</h2>
+      <p>Comisioanele de afiliere ne ajuta sa mentinem site-ul functional si sa actualizam continutul. Fara aceste venituri, nu am putea oferi informatii gratuite si actualizate.</p>
+      <h2>Contact</h2>
+      <p>Daca ai orice intrebare legata de link-urile de afiliere, ne poti scrie prin pagina de <a href="/contact/">Contact</a>.</p>
+    </div>
   </div>
+  <Footer />
 </Layout>

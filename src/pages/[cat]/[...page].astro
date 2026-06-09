@@ -26,7 +26,7 @@ const desc = `Toate ${cfg.label.toLowerCase()} ieftine din magazinele partenere:
 <Layout title={title} description={desc} modified={pageMod}>
   <Nav />
   <section class="rec-sec"><div class="wrap">
-    <nav class="rec-bc"><a href="/">Acasă</a> › <a href="/electrocasnice/">Electrocasnice</a> › <span>{cfg.label}</span></nav>
+    <nav class="rec-bc"><a href="/">Acasă</a> › <span>{cfg.label}</span></nav>
     <div class="sec-head"><span class="sec-head__tag">Categorie</span><h1>{cfg.label} ieftine</h1>
       <p><strong>{total}</strong> de {cfg.label.toLowerCase()} din magazinele partenere, cu cel mai mic preț pe fiecare model. Pagina {currentPage} din {lastPage}.</p></div>
     <div class="products">{items.map((p) => (
@@ -42,7 +42,7 @@ const desc = `Toate ${cfg.label.toLowerCase()} ieftine din magazinele partenere:
       {currentPage > 1 ? <a class="rec-pg" href={currentPage === 2 ? base : `${base}${currentPage - 1}/`}>← Anterioarele</a> : <span class="rec-pg rec-pg--off">← Anterioarele</span>}
       <span class="rec-pg-now">Pagina {currentPage} / {lastPage}</span>
       {currentPage < lastPage ? <a class="rec-pg" href={`${base}${currentPage + 1}/`}>Următoarele →</a> : <span class="rec-pg rec-pg--off">Următoarele →</span>}</nav>)}
-    <p class="rec-back"><a href="/electrocasnice/">← Vezi toate electrocasnicele</a></p>
+    <p class="rec-back"><a href="/">← Înapoi la pagina principală</a></p>
   </div></section>
   <Footer />
 </Layout>

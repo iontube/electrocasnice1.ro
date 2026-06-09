@@ -17,12 +17,12 @@ const money = (n) => Number(n).toLocaleString('ro-RO', { minimumFractionDigits: 
 const base = `/brand/${bslug}/`;
 const pageMod = items.reduce((m, p) => (p.modified && p.modified > m ? p.modified : m), '2026-04-01');
 const title = currentPage === 1 ? `Electrocasnice ${brandName}: ${total} modele și prețuri ${new Date().getFullYear()} | Electrocasnice1.ro` : `Electrocasnice ${brandName} – pagina ${currentPage} | Electrocasnice1.ro`;
-const desc = `Toate mașinile de spălat ${brandName} ieftine din magazinele partenere: ${total} de modele, cu cele mai mici prețuri.`;
+const desc = `Toate electrocasnicele ${brandName} ieftine din magazinele partenere: ${total} de modele, cu cele mai mici prețuri.`;
 ---
 <Layout title={title} description={desc} modified={pageMod}>
   <Nav />
   <section class="rec-sec"><div class="wrap">
-    <nav class="rec-bc"><a href="/">Acasă</a> › <a href="/electrocasnice/">Electrocasnice</a> › <span>{brandName}</span></nav>
+    <nav class="rec-bc"><a href="/">Acasă</a> › <span>{brandName}</span></nav>
     <div class="sec-head"><span class="sec-head__tag">Brand</span><h1>Electrocasnice {brandName}</h1>
       <p><strong>{total}</strong> de electrocasnice {brandName}, cu prețuri actualizate periodic.{lastPage > 1 ? ` Pagina ${currentPage} din ${lastPage}.` : ''}</p></div>
     <div class="products">{items.map((p) => (
@@ -38,7 +38,7 @@ const desc = `Toate mașinile de spălat ${brandName} ieftine din magazinele par
       {currentPage > 1 ? <a class="rec-pg" href={currentPage === 2 ? base : `${base}${currentPage - 1}/`}>← Anterioarele</a> : <span class="rec-pg rec-pg--off">← Anterioarele</span>}
       <span class="rec-pg-now">Pagina {currentPage} / {lastPage}</span>
       {currentPage < lastPage ? <a class="rec-pg" href={`${base}${currentPage + 1}/`}>Următoarele →</a> : <span class="rec-pg rec-pg--off">Următoarele →</span>}</nav>)}
-    <p class="rec-back"><a href="/electrocasnice/">← Vezi toate mașinile de spălat</a></p>
+    <p class="rec-back"><a href="/">← Înapoi la pagina principală</a></p>
   </div></section>
   <Footer />
 </Layout>

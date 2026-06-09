@@ -376,8 +376,8 @@ section{padding:var(--space-2xl) 0}
 .cookie__text{flex:1;min-width:200px;font-size:.82rem;line-height:1.5}
 .cookie__text a{color:var(--accent-light);text-decoration:underline}
 .cookie__btns{display:flex;gap:var(--space-sm)}
-.cookie__accept{padding:.45rem 1.25rem;background:#b04a2e;color:#fff;border-radius:var(--r-full);font-weight:700;font-size:.82rem}
-.cookie__accept:hover{background:#8a3a22}
+.cookie__accept{padding:.45rem 1.25rem;background:var(--accent);color:#fff;border-radius:var(--r-full);font-weight:700;font-size:.82rem}
+.cookie__accept:hover{background:var(--accent-dark)}
 .cookie__decline{padding:.45rem 1.25rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border-radius:var(--r-full);font-size:.82rem}
 .cookie__decline:hover{background:rgba(255,255,255,.15)}
 
@@ -503,3 +503,30 @@ h1,h2,h3,h4{font-family:'Manrope','Inter',sans-serif;letter-spacing:-.015em}
 .offer__btn{background:var(--accent);border-radius:var(--r-sm)}
 .offer__btn:hover{background:var(--accent-dark)}
 .offer__best{background:var(--teal-light);color:var(--teal)}
+
+/* ---- electrocasnice1 UI fixes: smaller headings, flat nav, roomier pills ---- */
+h1{font-size:clamp(1.5rem,3.4vw,2.1rem)!important}
+h2{font-size:clamp(1.2rem,2.6vw,1.55rem)!important}
+h3{font-size:clamp(1rem,2.1vw,1.18rem)!important}
+.sec-head h1{font-size:clamp(1.5rem,3.4vw,2.1rem)!important}
+.sec-head h2{font-size:clamp(1.2rem,2.6vw,1.5rem)!important}
+.sec-head p{font-size:.92rem;color:var(--ink-mid)}
+/* flatten the floating pill nav-bar into a clean solid white header */
+.nav{padding:0;background:#fff;border-bottom:1px solid var(--border)}
+.nav__bar{max-width:1180px;margin:0 auto;background:none;border:0;border-radius:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:.55rem 1.25rem}
+/* image logo */
+.nav__logo{display:flex;align-items:center}
+.nav__logo img{height:36px;width:auto;display:block}
+.nav__panel-title img{height:30px;width:auto;display:block}
+@media(max-width:560px){.nav__logo img{height:31px}}
+/* roomier category/brand/magazin pills */
+.rec-links{margin-top:2.25rem}
+.rec-links h2{font-size:1.1rem!important;margin-bottom:.9rem}
+.rec-links__row{gap:.6rem}
+.rec-links__row .rec-pg{padding:.5rem 1rem;font-size:.85rem;border-radius:var(--r-md)}
+/* homepage per-category sections */
+.cat-sec{margin-bottom:2.75rem}
+.cat-sec__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}
+.cat-sec__head h2{margin:0}
+.cat-sec__all{flex:0 0 auto;color:var(--accent);font-weight:700;font-size:.85rem;white-space:nowrap}
+.cat-sec__all:hover{color:var(--accent-dark);text-decoration:underline}

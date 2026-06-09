@@ -12,8 +12,7 @@ const urls = [];
 const add = (loc, pri = '0.6', lastmod = allMod, img = null) => urls.push(`  <url><loc>${SITE}${loc}</loc><lastmod>${lastmod}</lastmod><priority>${pri}</priority>${img ? `<image:image><image:loc>${xe(img)}</image:loc></image:image>` : ''}</url>`);
 const paginate = (path, items, pri) => { add(path, pri); const last = Math.ceil(items.length / PAGE); for (let i = 2; i <= last; i++) add(`${path}${i}/`, '0.4', maxMod(items)); };
 add('/', '1.0');
-paginate('/electrocasnice/', recs, '0.9');
-['/contact/', '/disclaimer-afiliere/', '/politica-cookies/', '/politica-de-confidentialitate/', '/termeni-si-conditii/'].forEach((u) => add(u, '0.3', FIXED));
+['/despre-noi/', '/contact/', '/disclaimer-afiliere/', '/politica-cookies/', '/politica-confidentialitate/', '/termeni-si-conditii/'].forEach((u) => add(u, '0.3', FIXED));
 for (const c of cats) { const items = recs.filter((p) => p.category === c.slug); if (items.length) paginate(`/${c.slug}/`, items, '0.8'); }
 const byB = {}; for (const p of recs) if (p.brandSlug) (byB[p.brandSlug] ||= []).push(p);
 for (const [b, items] of Object.entries(byB)) if (items.length >= MIN_BRAND) paginate(`/brand/${b}/`, items, '0.7');

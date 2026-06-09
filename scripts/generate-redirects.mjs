@@ -14,6 +14,6 @@ for (const p of recs) for (const o of (p.offers || [])) if (o.outKey && o.affili
 mkdirSync(fileURLToPath(new URL('../functions/out', import.meta.url)), { recursive: true });
 writeFileSync(fileURLToPath(new URL('../functions/out/[slug].js', import.meta.url)),
 `const MAP = ${JSON.stringify(map)};
-export function onRequest(context){const url=MAP[context.params.slug];if(url)return Response.redirect(url,302);return Response.redirect(new URL('/electrocasnice/',context.request.url).toString(),302);}
+export function onRequest(context){const url=MAP[context.params.slug];if(url)return Response.redirect(url,302);return Response.redirect(new URL('/',context.request.url).toString(),302);}
 `);
 console.log(`functions/out: ${Object.keys(map).length} keys`);

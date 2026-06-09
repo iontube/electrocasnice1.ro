@@ -16,9 +16,21 @@ const db = new Database(DB, { readonly: true });
 const APP_SUBS = ['aragazuri-si-cuptoare', 'aragazuri', 'plite', 'climatizare', 'aparate-de-aer-conditionat', 'aer-conditionat', 'masini-de-spalat', 'masini-de-spalat-rufe', 'masini-de-spalat-rufe-cu-uscator', 'masini-de-spalat-10-12-kg', 'masini-de-spalat-8-9-kg', 'masini-de-spalat-6-7-kg', 'masini-de-spalat-vase', 'uscatoare-de-rufe', 'frigidere', 'frigidere-si-congelatoare', 'frigider', 'congelatoare', 'mixere', 'blendere', 'blendere-si-tocatoare', 'aparate-si-espressoare-de-cafea-automate', 'cuptoare-cu-microunde', 'boilere', 'fierbatoare', 'prajitoare-de-paine', 'friteuze', 'air-fryer', 'sandwich-maker-and-waffle', 'hote', 'aspirator-umed-uscat', 'aspirator-vertical-stick', 'aspirator-fara-sac', 'aspiratoare', 'fiare-de-calcat', 'statii-de-calcat', 'masini-de-cusut', 'dezumidificator-casnic'];
 const INQ = APP_SUBS.map((s) => `'${s}'`).join(',');
 const TITLE = `(lower(title) LIKE '%frigider%' OR lower(title) LIKE '%combina frigorifica%' OR lower(title) LIKE '%congelator%' OR lower(title) LIKE '%masina de spalat%' OR lower(title) LIKE '%uscator de rufe%' OR lower(title) LIKE '%aspirator%' OR lower(title) LIKE '%cuptor%' OR lower(title) LIKE '%aragaz%' OR lower(title) LIKE '%plita%' OR lower(title) LIKE '%hota %' OR lower(title) LIKE '%espressor%' OR lower(title) LIKE '%aparat de cafea%' OR lower(title) LIKE '%fierbator%' OR lower(title) LIKE '%prajitor de paine%' OR lower(title) LIKE '%friteuza%' OR lower(title) LIKE '%air fryer%' OR lower(title) LIKE '%blender%' OR lower(title) LIKE '%mixer%' OR lower(title) LIKE '%robot de bucatarie%' OR lower(title) LIKE '%storcator%' OR lower(title) LIKE '%fier de calcat%' OR lower(title) LIKE '%aer conditionat%' OR lower(title) LIKE '%boiler%' OR lower(title) LIKE '%dezumidificator%' OR lower(title) LIKE '%masina de cusut%' OR lower(title) LIKE '%masina de tocat%')`;
-const NOT_WORDS = ['accesori', 'piesa', 'piese', 'filtru', 'filtre', ' sac ', ' saci', 'furtun', 'garnitura', 'perie pentru', 'duza', 'rezerva', 'consumabil', 'detergent', 'tableta', 'capsula', 'cartus', 'solutie', 'spray', 'odorizant', 'husa', 'masuta', 'mobilier', 'jucarie', 'jucărie', 'set cadou', 'magnet', ' carte', 'suport de', 'raft ', 'sertar', 'balama', 'rulment', 'motor universal', 'curea', 'termostat', 'rezistenta', 'pompa', 'amortizor', 'protectie', 'protecție', 'vopsea', 'autocolant', 'sticker', 'decalcifiant', 'anticalcar', 'pahar', 'cana ', 'recipient'];
+const NOT_WORDS = ['accesori', 'piesa', 'piese', 'filtru', 'filtre', ' sac ', ' saci', 'furtun', 'garnitura', 'perie pentru', 'duza', 'rezerva', 'consumabil', 'detergent', 'tableta', 'capsula', 'cartus', 'solutie', 'spray', 'odorizant', 'husa', 'masuta', 'mobilier', 'jucarie', 'jucărie', 'set cadou', 'magnet', ' carte', 'suport de', 'raft ', 'sertar', 'balama', 'rulment', 'motor universal', 'curea', 'termostat', 'rezistenta', 'pompa', 'amortizor', 'protectie', 'protecție', 'vopsea', 'autocolant', 'sticker', 'decalcifiant', 'anticalcar', 'pahar', 'cana ', 'recipient',
+  // furniture (NU "tip dulap" — alea sunt congelatoare/frigidere verticale legit)
+  'dulap de frigider', 'dulap frigider', 'dulap de bucatarie', 'dulap bucatarie', 'dulap de bucătărie', 'dulap pentru cuptor', 'dulap cuptor', 'dulap pentru', 'servanta', 'servantă', 'bufet', 'comoda', 'comodă', 'masa consola', 'masă consolă', 'masa de calcat', 'masă de călcat', 'carucior', 'cărucior', 'caruciar',
+  // cookware (vase de gatit, nu electrocasnice)
+  'ceaun', 'cuptor olandez', 'tava pentru cuptor', 'tavă pentru cuptor',
+  // audio (nu electrocasnice)
+  'mixer audio', 'boxe', ' boxa', 'difuzor',
+  // scule electrice
+  'fierastrau', 'ferastrau', 'fierăstrău', 'masina de slefuit', 'mașină de șlefuit', 'slefuit', 'polizor', 'bormasina', 'masina de gaurit',
+  // frigidere auto / coolere portabile (nu aparatura de casa)
+  'frigider auto', 'frigider portabil', 'lada frigorifica auto', 'cooler',
+  // diverse non-aparatura
+  'panou solar', 'baterie suplimentara'];
 const NOT_SQL = NOT_WORDS.map((w) => `lower(title) NOT LIKE '%${w}%'`).join(' AND ');
-const BRAND_BLOCK = ['smallrig', 'insta360', 'leifheit', 'vileda', 'gimi', 'brabantia', 'fisher-price', 'fisher price', 'svoora', 'zuru', 'playgo', 'melissa', 'lego', 'hasbro', 'noriel', 'roller', 'atelier 49'];
+const BRAND_BLOCK = ['smallrig', 'insta360', 'leifheit', 'vileda', 'gimi', 'brabantia', 'fisher-price', 'fisher price', 'svoora', 'zuru', 'playgo', 'melissa', 'lego', 'hasbro', 'noriel', 'roller', 'atelier 49', 'gossi', 'homcom', 'outsunny', 'aosom', 'helty', 'hyperx', 'jbl'];
 const BRAND_SQL = BRAND_BLOCK.map((b) => `lower(coalesce(brand,'')) <> '${b}'`).join(' AND ');
 const rows = db.prepare(`SELECT id, slug, title, price, oldPrice, brand, brandSlug, merchant, merchantSlug, img, descr
   FROM products WHERE (megaSlug='electronice-it' OR megaSlug='casa-gradina') AND (subSlug IN (${INQ}) OR ${TITLE}) AND ${NOT_SQL} AND ${BRAND_SQL}
@@ -41,9 +53,9 @@ const CATEGORIES = [
   { slug: 'electrocasnice-mici', label: 'Electrocasnice mici de bucătărie', re: /blender|mixer|robot de bucatarie|robot de bucătărie|storcator|stoarcator|friteuza|friteuză|air fryer|prajitor|prăjitor|toaster|sandwich|vafe|gofre|fierbator|fierbător|feliator|cantar|cântar|tocator|tocător|gratar electric|grill|raclette|aparat de tocat|masina de tocat|mașină de tocat/i },
 ];
 const CAT_LABELS = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c.label]));
-function classify(title, descr) {
-  const s = title + ' ' + (descr || '');
-  for (const c of CATEGORIES) if (c.re.test(s)) return c.slug;
+function classify(title) {
+  // clasificam DOAR pe titlu — descr contine adesea "compatibil cu masina de spalat vase" etc. -> categorie gresita
+  for (const c of CATEGORIES) if (c.re.test(title)) return c.slug;
   return 'electrocasnice-mici';
 }
 
@@ -127,7 +139,7 @@ const winners = {};
 for (const row of rows) {
   const img = imgUrl(row.img, row.title); if (!img) continue;
   const cu = (CAMPAIGN[row.merchantSlug] || {}).c; if (!cu) continue;
-  const catSlug = classify(row.title, row.descr);
+  const catSlug = classify(row.title);
   const sp = parseSpecs(row.title, row.descr, row.brand, catSlug);
   const mkey = modelKey(row.title, row.brandSlug, sp, catSlug);
   const mSlug = merchSlugOf(row.merchant);
@@ -182,7 +194,7 @@ for (const mkey of Object.keys(oldLedger)) {
   const e = oldLedger[mkey]; if (!e || !e.s) continue;
   if ((e.d || '0') < cutoff) continue;
   const sim = byBrandBand[`${e.b}|${e.z}`];
-  dropped[e.s] = (sim && sim.length) ? `/produs/${sim[0].slug}/` : (brandPages.has(e.b) ? `/brand/${e.b}/` : (CAT_LABELS[e.z] ? `/${e.z}/` : '/electrocasnice/'));
+  dropped[e.s] = (sim && sim.length) ? `/produs/${sim[0].slug}/` : (brandPages.has(e.b) ? `/brand/${e.b}/` : (CAT_LABELS[e.z] ? `/${e.z}/` : '/'));
   newLedger[mkey] = e;
 }
 
