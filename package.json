@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/generate-sitemaps.js",
+    "build": "node scripts/generate-redirects.mjs && node scripts/gen-sitemap.mjs && astro build",
     "preview": "astro preview",
     "generate": "node scripts/generate-batch.js",
     "auto-generate": "node scripts/auto-generate.js"

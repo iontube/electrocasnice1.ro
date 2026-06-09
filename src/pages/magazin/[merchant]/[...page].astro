@@ -1,0 +1,43 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import products from '../../../data/electrocasnice.json';
+export function getStaticPaths() {
+  const PAGE = 48; const by = {};
+  for (const p of products) for (const o of p.offers) { (by[o.merchantSlug] ||= { name: o.merchantName, items: [] }); if (!by[o.merchantSlug].items.includes(p)) by[o.merchantSlug].items.push(p); }
+  const paths = [];
+  for (const [mslug, { name, items }] of Object.entries(by)) { items.sort((a, b) => a.price - b.price); const last = Math.ceil(items.length / PAGE);
+    for (let pg = 1; pg <= last; pg++) paths.push({ params: { merchant: mslug, page: pg === 1 ? undefined : String(pg) }, props: { mName: name, mslug, items: items.slice((pg - 1) * PAGE, pg * PAGE), currentPage: pg, lastPage: last, total: items.length } }); }
+  return paths;
+}
+const { mName, mslug, items, currentPage, lastPage, total } = Astro.props;
+const money = (n) => Number(n).toLocaleString('ro-RO', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' lei';
+const base = `/magazin/${mslug}/`;
+const pageMod = items.reduce((m, p) => (p.modified && p.modified > m ? p.modified : m), '2026-04-01');
+const title = currentPage === 1 ? `Electrocasnice la ${mName}: ${total} oferte | Electrocasnice1.ro` : `Electrocasnice la ${mName} – pagina ${currentPage} | Electrocasnice1.ro`;
+const desc = `Toate mașinile de spălat ieftine disponibile la ${mName}: ${total} de modele, cu prețuri actualizate.`;
+---
+<Layout title={title} description={desc} modified={pageMod}>
+  <Nav />
+  <section class="rec-sec"><div class="wrap">
+    <nav class="rec-bc"><a href="/">Acasă</a> › <a href="/electrocasnice/">Electrocasnice</a> › <span>{mName}</span></nav>
+    <div class="sec-head"><span class="sec-head__tag">Magazin</span><h1>Electrocasnice la {mName}</h1>
+      <p><strong>{total}</strong> de electrocasnice la {mName}, cu prețuri actualizate periodic.{lastPage > 1 ? ` Pagina ${currentPage} din ${lastPage}.` : ''}</p></div>
+    <div class="products">{items.map((p) => (
+      <article class="card">
+        {p.oldPrice && <span class="card__badge card__badge--value">-{Math.round((1 - p.price / p.oldPrice) * 100)}%</span>}
+        <a class="card__img" href={`/produs/${p.slug}/`} aria-label={p.name}><img src={p.img} alt={p.name} width="200" height="200" loading="lazy" decoding="async" /></a>
+        <div class="card__body"><a href={`/produs/${p.slug}/`}><h3 class="card__name">{p.name}</h3></a>
+          <div class="card__specs">{Object.values(p.specs).slice(1, 4).map((v) => <span class="card__spec">{v}</span>)}</div>
+          <div class="card__price-row"><span class="card__price">{money(p.price)}</span>{p.oldPrice && <s>{money(p.oldPrice)}</s>}</div>
+          <div class="card__foot"><a href={`/produs/${p.slug}/`} class="card__cta">Vezi detalii</a></div></div>
+      </article>))}</div>
+    {lastPage > 1 && (<nav class="rec-pager" aria-label="Paginare">
+      {currentPage > 1 ? <a class="rec-pg" href={currentPage === 2 ? base : `${base}${currentPage - 1}/`}>← Anterioarele</a> : <span class="rec-pg rec-pg--off">← Anterioarele</span>}
+      <span class="rec-pg-now">Pagina {currentPage} / {lastPage}</span>
+      {currentPage < lastPage ? <a class="rec-pg" href={`${base}${currentPage + 1}/`}>Următoarele →</a> : <span class="rec-pg rec-pg--off">Următoarele →</span>}</nav>)}
+    <p class="rec-back"><a href="/electrocasnice/">← Vezi toate mașinile de spălat</a></p>
+  </div></section>
+  <Footer />
+</Layout>

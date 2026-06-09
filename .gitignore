@@ -7,3 +7,14 @@ generation.log
 scripts/temp-articles.json
 scripts/successful-keywords.json
 last-category.json
+
+# server-generated (rebuilt nightly — never commit)
+.cache/
+src/data/electrocasnice.json
+src/data/categories.json
+functions/
+public/sitemap.xml
+public/_redirects
+
+# server-only operational script (CF Global Key — never commit to public repo)
+deploy.sh

@@ -1,0 +1,26 @@
+---
+import categories from '../data/categories.json';
+const top = categories.slice(0, 6);
+---
+<nav class="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo"><strong style="font-size:1.1rem;color:var(--accent)">Electrocasnice1</strong></a>
+    <div class="nav__links">
+      <a href="/electrocasnice/">Toate</a>
+      <a href="/frigidere/">Frigidere</a>
+      <a href="/aragaze-cuptoare/">Aragaze</a>
+      <a href="/aspiratoare/">Aspiratoare</a>
+      <a href="/electrocasnice-mici/">Mici electrocasnice</a>
+    </div>
+    <a href="/electrocasnice/" class="nav__cta">Vezi ofertele</a>
+    <button class="nav__burger" id="navBurger" aria-label="Meniu"><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="navDrawer">
+  <div class="nav__scrim" id="navScrim"></div>
+  <div class="nav__panel">
+    <div class="nav__panel-head"><div class="nav__panel-title"><strong>Electrocasnice1</strong></div><button class="nav__panel-close" id="navClose">&times;</button></div>
+    <a href="/electrocasnice/">Toate ofertele</a>
+    {top.map((c) => <a href={`/${c.slug}/`}>{c.label}</a>)}
+  </div>
+</div>

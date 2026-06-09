@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /out/
 Allow: /
 
-Sitemap: https://electrocasnice1.ro/sitemap_index.xml
+Sitemap: https://electrocasnice1.ro/sitemap.xml

@@ -1,50 +1,27 @@
 ---
 const year = new Date().getFullYear();
+const legalLinks = [
+  { href: '/politica-confidentialitate/', label: 'Confidentialitate' },
+  { href: '/politica-cookies/', label: 'Cookies' },
+  { href: '/termeni-si-conditii/', label: 'Termeni' },
+  { href: '/disclaimer-afiliere/', label: 'Disclaimer' },
+  { href: '/contact/', label: 'Contact' },
+];
 ---
-
-<footer class="pin-footer">
-  <div class="pin-footer-inner">
-    <div class="pin-footer-top">
-      <div class="pin-footer-brand">
-        <span class="pin-logo-mark" style="font-size: 1rem;">E1</span>
-        <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; color: #fff; letter-spacing: -0.03em;">Electrocasnice1.ro</span>
-      </div>
-      <p class="pin-footer-desc">Ghidul tau pentru electrocasnice — comparatii, preturi si recomandari actualizate.</p>
+<div class="footer">
+  <div class="wrap">
+    <div class="footer__inner">
+      <div class="footer__brand"><img src="/assets/images/logo-electrocasnice1.webp" alt="MasiniDeSpalat Ieftine" height="44" width="124" /></div>
+      <nav class="footer__links" aria-label="Pagini legale">
+        <a href="/despre-noi/">Despre noi</a>
+        {legalLinks.map(l => <a href={l.href} rel="nofollow">{l.label}</a>)}
+      </nav>
     </div>
-
-    <div class="pin-footer-cols">
-      <div class="pin-footer-col">
-        <p class="pin-footer-col-title">Categorii</p>
-        <a href="/masini-de-spalat/">Masini de Spalat</a>
-        <a href="/frigidere/">Frigidere</a>
-        <a href="/cuptoare-aragazuri/">Cuptoare si Aragazuri</a>
-        <a href="/aspiratoare/">Aspiratoare</a>
-        <a href="/masini-spalat-vase/">Masini Spalat Vase</a>
-        <a href="/electrocasnice-mici/">Electrocasnice Mici</a>
-      </div>
-      <div class="pin-footer-col">
-        <p class="pin-footer-col-title">Informatii</p>
-        <a href="/blog/">Articole</a>
-        <a href="/contact/">Contact</a>
-        <a href="/sitemap/">Sitemap</a>
-        <a href="/disclaimer-afiliere/">Disclaimer Afiliere</a>
-      </div>
-      <div class="pin-footer-col">
-        <p class="pin-footer-col-title">Legal</p>
-        <a href="/politica-de-confidentialitate/">Confidentialitate</a>
-        <a href="/politica-cookies/">Cookies</a>
-        <a href="/termeni-si-conditii/">Termeni si Conditii</a>
-      </div>
-      <div class="pin-footer-col">
-        <p class="pin-footer-col-title">Linkuri utile</p>
-        <a href="https://ofertatelefoane.ro/">Top Telefoane</a>
-      </div>
+    <div class="footer__bottom">
+      <span>&copy; {year} electrocasnice1.ro</span>
     </div>
+    <p class="footer__disclaimer">
+      Acest site contine link-uri de afiliere. Daca achizitionezi un produs prin link-urile noastre, putem primi un comision fara niciun cost suplimentar pentru tine. Preturile sunt orientative - verificati pretul final pe site-ul magazinului.
+    </p>
   </div>
-
-  <div class="pin-footer-bottom">
-    <span>&copy; {year} Electrocasnice1.ro</span>
-    <span class="pin-footer-sep">&middot;</span>
-    <span>Toate drepturile rezervate.</span>
-  </div>
-</footer>
+</div>

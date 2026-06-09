@@ -1,121 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+import products from '../data/electrocasnice.json';
+import categories from '../data/categories.json';
 
-const categories = [
-  { name: 'Masini de Spalat Rufe', slug: 'masini-de-spalat', color: '#055a5b' },
-  { name: 'Frigidere si Combine', slug: 'frigidere', color: '#2e5fa1' },
-  { name: 'Cuptoare si Aragazuri', slug: 'cuptoare-aragazuri', color: '#b85a1e' },
-  { name: 'Aspiratoare', slug: 'aspiratoare', color: '#6b4fa0' },
-  { name: 'Masini de Spalat Vase', slug: 'masini-spalat-vase', color: '#1e7a67' },
-  { name: 'Electrocasnice Mici', slug: 'electrocasnice-mici', color: '#a8792e' },
-];
-
-// Get all article pages
-const allPages = import.meta.glob('./**/*.astro', { eager: true });
-const excludePages = new Set(['index', 'contact', 'cookies', 'privacy-policy', 'privacy', 'gdpr', 'sitemap', '404', 'about', 'terms', 'disclaimer-afiliere', 'politica-cookies', 'politica-de-confidentialitate', 'politica-confidentialitate', 'termeni-si-conditii']);
-const excludeDirs = new Set(['blog', 'masini-de-spalat', 'frigidere', 'cuptoare-aragazuri', 'aspiratoare', 'masini-spalat-vase', 'electrocasnice-mici']);
-
-const articles: any[] = [];
-for (const [path, mod] of Object.entries(allPages)) {
-  const parts = path.replace('./', '').replace('.astro', '').split('/');
-  if (parts.length > 1 && (excludeDirs.has(parts[0]) || parts[parts.length - 1].startsWith('['))) continue;
-  const name = parts[parts.length - 1];
-  if (excludePages.has(name)) continue;
-  const frontmatter = (mod as any).frontmatter;
-  if (frontmatter?.title) {
-    articles.push(frontmatter);
-  }
-}
-
-articles.sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime());
-const featured = articles[0];
-const sideArticles = articles.slice(1, 5);
-const gridArticles = articles.slice(5, 11);
+const money = (n) => Number(n).toLocaleString('ro-RO', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' lei';
+const total = products.length;
+const catCounts = {}; for (const p of products) catCounts[p.category] = (catCounts[p.category] || 0) + 1;
+const catList = categories.map((c) => ({ ...c, c: catCounts[c.slug] || 0 })).filter((c) => c.c > 0).sort((a, b) => b.c - a.c);
+const topOferte = [...products].filter((p) => p.oldPrice).sort((a, b) => (1 - b.price / b.oldPrice) - (1 - a.price / a.oldPrice)).slice(0, 8);
+while (topOferte.length < 8 && products[topOferte.length]) topOferte.push(products[topOferte.length]);
+const mainModified = topOferte.reduce((m, p) => (p.modified && p.modified > m ? p.modified : m), '2026-04-01');
+const title = `Electrocasnice ieftine 2026 — ${total} de oferte, prețuri și comparații | Electrocasnice1.ro`;
+const description = `Cele mai mici prețuri la electrocasnice în 2026: frigidere, mașini de spălat, aragaze, aspiratoare, aparate de cafea și multe altele. ${total} de produse din magazinele partenere, comparate pe preț.`;
 ---
-
-<Layout
-  title="Electrocasnice Oferte 2026 — Preturi, Pareri si Comparatii"
-  description="Compara electrocasnice pentru casa ta. Masini de spalat, frigidere, cuptoare, aspiratoare — preturi, pareri reale si oferte actualizate 2026."
-  breadcrumbs={[{ name: 'Acasa', url: '/' }]}
->
-  <div class="pin-container">
-    <h1 class="sr-only">Electrocasnice — Preturi, Pareri si Comparatii 2026</h1>
-
-    <!-- Editorial hero: featured + sidebar list -->
-    {featured ? (
-      <section class="pin-hero">
-        <div class="pin-hero-main">
-          <ArticleCard
-            title={featured.title}
-            slug={featured.slug}
-            excerpt={featured.excerpt}
-            image={featured.image}
-            category={featured.category}
-            categorySlug={featured.categorySlug}
-            date={featured.date}
-            author={featured.author}
-            variant="featured"
-          />
-        </div>
-        {sideArticles.length > 0 && (
-          <aside class="pin-hero-side">
-            <h2 class="pin-label">Recent</h2>
-            {sideArticles.map(article => (
-              <ArticleCard
-                title={article.title}
-                slug={article.slug}
-                image={article.image}
-                category={article.category}
-                categorySlug={article.categorySlug}
-                date={article.date}
-                variant="list"
-              />
-            ))}
-          </aside>
-        )}
-      </section>
-    ) : (
-      <section class="pin-empty-hero">
-        <p class="pin-empty-hero-sub">Preturi, pareri si comparatii pentru cele mai cautate electrocasnice din Romania.</p>
-      </section>
-    )}
-
-    <!-- Category pills -->
-    <section class="pin-categories">
-      <h2 class="pin-label">Categorii</h2>
-      <div class="pin-category-pills">
-        {categories.map(cat => (
-          <a href={`/${cat.slug}/`} class="pin-cat-chip">
-            <span class="pin-chip-dot" style={`background: ${cat.color}`}></span>
-            {cat.name}
-          </a>
-        ))}
+<Layout title={title} description={description} modified={mainModified}>
+  <SchemaMarkup modified={mainModified} />
+  <Nav />
+  <section class="rec-sec" style="padding-top:calc(70px + 1.5rem)">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-head__tag">Electrocasnice 2026</span>
+        <h1>Electrocasnice ieftine, comparate pe preț</h1>
+        <p><strong>{total}</strong> de electrocasnice din magazinele partenere — frigidere, mașini de spălat, aragaze, aspiratoare, aparate de cafea și multe altele. Îți arătăm cel mai mic preț pe fiecare model.</p>
       </div>
-    </section>
 
-    <!-- Grid articles -->
-    {gridArticles.length > 0 && (
-      <section class="pin-section">
-        <div class="pin-section-head">
-          <h2 class="pin-label">Toate Articolele</h2>
-          <a href="/blog/" class="pin-see-all">Vezi toate &rarr;</a>
-        </div>
-        <div class="pin-grid">
-          {gridArticles.map(article => (
-            <ArticleCard
-              title={article.title}
-              slug={article.slug}
-              excerpt={article.excerpt}
-              image={article.image}
-              category={article.category}
-              categorySlug={article.categorySlug}
-              date={article.date}
-              author={article.author}
-            />
-          ))}
-        </div>
-      </section>
-    )}
-  </div>
+      <div class="rec-links" style="margin-top:0"><h2>Alege o categorie</h2><div class="rec-links__row">{catList.map((c) => <a class="rec-pg" href={`/${c.slug}/`}>{c.label} <span>({c.c})</span></a>)}</div></div>
+
+      <div class="sec-head" style="margin-top:2.5rem"><span class="sec-head__tag">Oferte actualizate</span><h2>Cele mai bune oferte la electrocasnice</h2><p>Modele cu cea mai mare reducere acum, din toate categoriile.</p></div>
+      <div class="products">{topOferte.map((p) => (
+        <article class="card">
+          {p.oldPrice && <span class="card__badge card__badge--value">-{Math.round((1 - p.price / p.oldPrice) * 100)}%</span>}
+          <a class="card__img" href={`/produs/${p.slug}/`} aria-label={p.name}><img src={p.img} alt={p.name} width="200" height="200" loading="lazy" decoding="async" /></a>
+          <div class="card__body"><a href={`/produs/${p.slug}/`}><h3 class="card__name">{p.name}</h3></a>
+            <div class="card__specs">{Object.values(p.specs).slice(1, 4).map((v) => <span class="card__spec">{v}</span>)}</div>
+            <div class="card__price-row"><span class="card__price">{money(p.price)}</span>{p.oldPrice && <s>{money(p.oldPrice)}</s>}</div>
+            <div class="card__foot"><a href={`/produs/${p.slug}/`} class="card__cta">Vezi detalii</a></div></div>
+        </article>))}</div>
+      <div style="text-align:center;margin-top:1.6rem"><a href="/electrocasnice/" class="rec-pg" style="display:inline-block">Vezi toate cele {total} de electrocasnice →</a></div>
+    </div>
+  </section>
+  <Footer />
 </Layout>

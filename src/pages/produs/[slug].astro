@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import products from '../../data/electrocasnice.json';
+
+const MIN_BRAND = 4;
+const brandCount = {};
+for (const x of products) if (x.brandSlug) brandCount[x.brandSlug] = (brandCount[x.brandSlug] || 0) + 1;
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const money = (n) => Number(n).toLocaleString('ro-RO', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' lei';
+const enc = (s) => Buffer.from(s, 'utf8').toString('base64');
+const year = new Date().getFullYear();
+const kindLabel = p.categoryLabel;
+const kindPath = `/${p.category}/`;
+const title = `${p.name} – preț și păreri ${year} | Electrocasnice1.ro`;
+const desc = `${p.name}: ${p.offerCount > 1 ? `${p.offerCount} oferte, ` : ''}de la ${money(p.price)}. Capacitate, clasă energetică și unde o cumperi cel mai ieftin.`;
+const hasBrandPage = p.brandSlug && brandCount[p.brandSlug] >= MIN_BRAND;
+const related = products.filter((x) => x.brandSlug === p.brandSlug && x.slug !== p.slug).slice(0, 8);
+const off = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+const prices = p.offers.map((o) => o.price);
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'Product', name: p.name, image: p.img, ...(p.brand ? { brand: { '@type': 'Brand', name: p.brand } } : {}), description: p.prose.intro.slice(0, 300),
+    offers: { '@type': 'AggregateOffer', priceCurrency: 'RON', lowPrice: Math.min(...prices).toFixed(2), highPrice: Math.max(...prices).toFixed(2), offerCount: p.offerCount, availability: 'https://schema.org/InStock', url: `https://electrocasnice1.ro/produs/${p.slug}/` } },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: p.prose.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Acasă', item: 'https://electrocasnice1.ro/' },
+    { '@type': 'ListItem', position: 2, name: kindLabel, item: `https://electrocasnice1.ro${kindPath}` },
+    ...(hasBrandPage ? [{ '@type': 'ListItem', position: 3, name: p.brand, item: `https://electrocasnice1.ro/brand/${p.brandSlug}/` }] : []),
+    { '@type': 'ListItem', position: hasBrandPage ? 4 : 3, name: p.name, item: `https://electrocasnice1.ro/produs/${p.slug}/` },
+  ] },
+];
+---
+<Layout title={title} description={desc} modified={p.modified}>
+  <Nav />
+  <section class="tvp-sec">
+    <div class="wrap">
+      <nav class="rec-bc"><a href="/">Acasă</a> › <a href={kindPath}>{kindLabel}</a> ›{hasBrandPage && <> <a href={`/brand/${p.brandSlug}/`}>{p.brand}</a> ›</>} <span>{p.name}</span></nav>
+
+      <article class="tvp-main">
+        <div class="tvp-gallery"><img src={p.img} alt={p.name} width="460" height="345" fetchpriority="high" decoding="async" /></div>
+        <div class="tvp-offer">
+          <div class="tvp-tags">
+            {p.brand && (hasBrandPage ? <a class="tvp-brand" href={`/brand/${p.brandSlug}/`}>{p.brand}</a> : <span class="tvp-brand">{p.brand}</span>)}
+            <span class="tvp-type">{p.type}</span>
+          </div>
+          <h1 class="tvp-h1">{p.name}</h1>
+          <div class="tvp-price"><span class="tvp-from">{p.offerCount > 1 ? 'de la ' : ''}</span><span class="tvp-now">{money(p.price)}</span>{p.oldPrice && <s>{money(p.oldPrice)}</s>}{off > 0 && <span class="tvp-off">-{off}%</span>}</div>
+          <p class="tvp-stock">Cel mai mic preț la <a class="tvp-merch" href={`/magazin/${p.merchantSlug}/`}><strong>{p.merchantName}</strong></a></p>
+          <button class="tvp-cta" data-o={enc(p.slug)} type="button">Vezi oferta la {p.merchantName} →</button>
+          <p class="tvp-note">Preț actualizat periodic · link afiliat</p>
+        </div>
+      </article>
+
+      {p.offers.length > 1 && (
+        <section class="tvp-block">
+          <div class="sec-head"><h2>Vezi oferta la fiecare magazin ({p.offers.length})</h2></div>
+          <div class="offers">{p.offers.map((o, i) => (
+            <div class="offer">
+              <span class="offer__shop">{o.merchantName}</span>
+              <span class="offer__price">{money(o.price)}{o.oldPrice && <s>{money(o.oldPrice)}</s>}</span>
+              {i === 0 && <span class="offer__best">cel mai mic</span>}
+              <button class="offer__btn" data-o={enc(o.outKey)} type="button">Vezi oferta →</button>
+            </div>
+          ))}</div>
+        </section>
+      )}
+
+      <section class="tvp-block">
+        <div class="sec-head"><h2>Despre {p.name}</h2></div>
+        <div class="guide"><p>{p.prose.intro}</p>{p.prose.guide.map((g) => <p>{g}</p>)}</div>
+      </section>
+
+      <section class="tvp-block">
+        <div class="sec-head"><h2>Specificații {p.name}</h2></div>
+        <div class="guide"><table class="spec-tbl"><tbody>{Object.entries(p.specs).map(([k, v]) => <tr><th>{k}</th><td>{v}</td></tr>)}</tbody></table></div>
+      </section>
+
+      <section class="tvp-block">
+        <div class="sec-head"><h2>Întrebări frecvente despre {p.name}</h2></div>
+        <div class="faq-grid">{p.prose.faq.map((f) => (
+          <div class="faq-card">
+            <button class="faq-card__q" aria-expanded="false">{f.q}</button>
+            <div class="faq-card__a">{f.a}</div>
+          </div>
+        ))}</div>
+      </section>
+
+      {related.length > 0 && (
+        <section class="tvp-block">
+          <div class="sec-head"><h2>Alte produse {p.brand} similare</h2></div>
+          <div class="products">{related.map((r) => (
+            <article class="card">
+              <a class="card__img" href={`/produs/${r.slug}/`}><img src={r.img} alt={r.name} width="200" height="200" loading="lazy" decoding="async" /></a>
+              <div class="card__body">
+                <a href={`/produs/${r.slug}/`}><h3 class="card__name">{r.name}</h3></a>
+                <div class="card__price-row"><span class="card__price">{money(r.price)}</span></div>
+                <div class="card__foot"><a href={`/produs/${r.slug}/`} class="card__cta">Vezi detalii</a></div>
+              </div>
+            </article>
+          ))}</div>
+        </section>
+      )}
+    </div>
+  </section>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</Layout>

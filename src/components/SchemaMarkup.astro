@@ -1,0 +1,12 @@
+---
+interface Props { modified?: string }
+const { modified } = Astro.props;
+const siteUrl = 'https://electrocasnice1.ro';
+const now = modified ? `${modified}T08:00:00+03:00` : '2026-04-01T08:00:00+03:00';
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Electrocasnice1.ro', url: siteUrl + '/',
+    potentialAction: { '@type': 'SearchAction', target: siteUrl + '/electrocasnice/?q={q}', 'query-input': 'required name=q' } },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: 'Electrocasnice1.ro', url: siteUrl + '/', '@id': siteUrl + '/#organization' },
+];
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

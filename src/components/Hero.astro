@@ -1,0 +1,49 @@
+---
+import products from '../data/products.json';
+const all = [...(products.ieftine || []), ...(products.buget || []), ...(products.premium || [])];
+const count = all.length;
+const now = new Date();
+const updated = now.toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' });
+const isoDate = now.toISOString().split('T')[0];
+const featured = all[0];
+---
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <div class="hero__tag"><time datetime={isoDate}>Actualizat {updated}</time></div>
+        <h1>Ce masina de spalat sa cumpar in <em>2026</em></h1>
+        <p class="hero__sub">{count} masini de spalat rufe ieftine si bune comparate pe specificatii reale. Modele cu motor inverter si clasa energetica A de la 1.000 RON, masini de spalat slim pentru spatii mici si masini de spalat cu uscator pentru apartamente. Arctic, Beko, Samsung, LG, Whirlpool, Bosch si Miele.</p>
+        <div class="hero__actions">
+          <a href="#top-masini" class="btn btn--fill">Vezi top masini de spalat</a>
+          <a href="#ghid" class="btn btn--ghost">Cum alegi corect</a>
+        </div>
+        <div class="hero__stats">
+          <div>
+            <div class="hero__stat-val">{count || '—'}</div>
+            <div class="hero__stat-lbl">Modele comparate</div>
+          </div>
+          <div>
+            <div class="hero__stat-val">3</div>
+            <div class="hero__stat-lbl">Categorii pret</div>
+          </div>
+          <div>
+            <div class="hero__stat-val">2026</div>
+            <div class="hero__stat-lbl">Actualizat</div>
+          </div>
+        </div>
+      </div>
+      {featured && (
+        <div class="hero__visual">
+          <div class="hero__featured">
+            <div class="hero__featured-badge">Recomandarea noastra</div>
+            <img src={`/assets/images/products/${featured.slug}.webp`} alt={featured.name} width="260" height="260" />
+            <div class="hero__featured-name">{featured.name}</div>
+            <p class="hero__featured-hook">Motor Silent Inverter, clasa A, spalare cu aburi. Cel mai bun raport calitate-pret sub 1.500 RON.</p>
+            <a href={`#recenzie-${featured.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`} class="btn btn--fill btn--full">Citeste recenzia</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

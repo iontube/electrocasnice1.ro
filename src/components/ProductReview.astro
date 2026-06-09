@@ -1,0 +1,72 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  affiliate: string;
+  specs: Record<string, string>;
+  review: {
+    paragrafe: string[];
+    pentruCine: string;
+    pro: string[];
+    contra: string[];
+    verdict: string;
+  };
+}
+const { name, slug, affiliate, specs, review } = Astro.props;
+const imgSrc = `/assets/images/products/${slug}.webp`;
+const reviewId = 'recenzie-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/,'');
+---
+<article class="review" id={reviewId}>
+  <div class="review__top">
+    <div class="review__img">
+      <img src={imgSrc} alt={name} width="180" height="180" loading="lazy" />
+    </div>
+    <div class="review__meta">
+      <h3>{name}</h3>
+      <div class="review__specs">
+        {Object.entries(specs).map(([k, v]) => (
+          <div class="review__spec"><strong>{k}</strong>{v}</div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="review__body">
+    {review.paragrafe.map(p => <p set:html={p} />)}
+
+    <div class="review__target">
+      <div class="review__target-icon">&#10003;</div>
+      <div>
+        <strong>Pentru cine este potrivita</strong>
+        <p>{review.pentruCine}</p>
+      </div>
+    </div>
+
+    <div class="review__proscons">
+      <div class="review__pro-box">
+        <h4 class="review__pro-title">&#9650; Avantaje</h4>
+        <ul>
+          {review.pro.map(p => <li>{p}</li>)}
+        </ul>
+      </div>
+      <div class="review__con-box">
+        <h4 class="review__con-title">&#9660; Dezavantaje</h4>
+        <ul>
+          {review.contra.map(c => <li>{c}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="review__bottom-line">
+      <div class="review__bottom-line-head">
+        <span class="review__bottom-line-dot"></span>
+        <span>Pe scurt</span>
+      </div>
+      <p>{review.verdict}</p>
+    </div>
+  </div>
+
+  <div class="review__cta-wrap">
+    <button class="btn btn--cta" data-o={Buffer.from(slug,'utf8').toString('base64')} type="button">Vezi pret si disponibilitate</button>
+  </div>
+</article>
