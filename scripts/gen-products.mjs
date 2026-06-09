@@ -42,10 +42,18 @@ const NOT_WORDS = ['accesori', 'piesa', 'piese', 'filtru', 'filtre', ' sac ', ' 
   // camping / tubulatura / mini-ventilatoare de mana
   'aragaz camping', 'aragaz exterior', 'camping', 'portabil de mana', 'portabil de mână', 'tubulatura', 'tubulatură', 'teava pex', 'spiro',
   // resturi: piese/servicii frigider, accesorii aspirator, mobilier, vase
-  'pentru aragaz', 'tava cuptor', 'tavă cuptor', 'panou interschimbabil', 'montaj frigider', 'montaj masina', 'montaj mașina', 'montaj side', 'aspirator nazal', 'perie aspirator', 'adaptor aspirator', 'incarcator aspirator', 'încărcător aspirator', 'alimentator', 'baza de incarcare', 'bază de încărcare', 'dublura', 'saci aspirator', 'perie rotativa', 'rola mop', 'cutie de praf', 'suport laveta', 'rezervor de apa', 'dulap baie', 'dulap masina', 'dulap mașina', 'cutitul', 'cuțitul', 'cutit santoku', 'set de 4 cutite', 'set de cutite', 'cutite cu suport', 'cratita', 'cratiță', 'fier turnat'];
+  'pentru aragaz', 'tava cuptor', 'tavă cuptor', 'panou interschimbabil', 'montaj frigider', 'montaj masina', 'montaj mașina', 'montaj side', 'aspirator nazal', 'perie aspirator', 'adaptor aspirator', 'incarcator aspirator', 'încărcător aspirator', 'alimentator', 'baza de incarcare', 'bază de încărcare', 'dublura', 'saci aspirator', 'perie rotativa', 'rola mop', 'cutie de praf', 'suport laveta', 'rezervor de apa', 'dulap baie', 'dulap masina', 'dulap mașina', 'cutitul', 'cuțitul', 'cutit santoku', 'set de 4 cutite', 'set de cutite', 'cutite cu suport', 'cratita', 'cratiță', 'fier turnat',
+  // accesorii espressor / capace-piese (NU "capac metalic/email" de aragaz, NU "Capac To-Go" de blender)
+  'kit intretinere', 'kit întreținere', 'kit de ingrijire', 'kit de îngrijire', 'intretinere espressor', 'capac superior', 'capac perie', 'capac bosch', 'lavete de mop', 'lavete pentru',
+  // scule de constructii intrate pe "mixer": amestecatoare/malaxoare de mortar/adezivi, mori, izolatii
+  'amestecator', 'amestecător', 'malaxor', 'mortar', 'adeziv', 'betoniera', 'betonieră', 'izolatie', 'izolație', 'covor electric', 'ciocanele', 'ciocănele',
+  // mobilier de bucatarie (seturi de corpuri cu "corp cuptor/microunde") intrate pe "cuptor"
+  'set bucatarie', 'set de bucatarie', 'corp cuptor', 'corpuri', 'modul bucatarie', 'blat termorezistent', 'blat de lucru',
+  // combustibil solid / exterior (nu electrocasnice electrice): pe lemne/peleti/carbuni, seminee gaz, tocatoare industriale
+  'pe lemne', 'peleti', 'peleți', 'semineu pe gaz', 'semineu de terasa', 'semineu de terasă', 'semineu de exterior', 'soba pe', 'sobă pe', 'gratar pe lemne', 'gratar pe carbuni', 'grătar pe', 'gratar premium', 'kg/h'];
 const NOT_SQL = NOT_WORDS.map((w) => `lower(title) NOT LIKE '%${w}%'`).join(' AND ');
 const BRAND_BLOCK = ['smallrig', 'insta360', 'leifheit', 'vileda', 'gimi', 'brabantia', 'fisher-price', 'fisher price', 'svoora', 'zuru', 'playgo', 'melissa', 'lego', 'hasbro', 'noriel', 'atelier 49', 'gossi', 'homcom', 'outsunny', 'aosom', 'helty', 'hyperx', 'jbl', 'smartheater', 'smart heater', 'osram', 'rotho', 'tenq', 'gave', 'ukonic', 'ecoflow', 'anker',
-  'spectral', 'songmics', 'spirella', 'jisulife', 'sonne', 'lelin', 'sonte', 'barbie', 'le creuset', 'lekue', 'reer', 'nuvita', 'chicco', 'dr. brown', 'dr brown', 'neoklein', 'paa-home', 'ecovent', 'micul fermier', 'eur gas', 'babycalin', 'mobila sa', 'pako world', 'fadome'];
+  'spectral', 'songmics', 'spirella', 'jisulife', 'sonne', 'lelin', 'sonte', 'barbie', 'le creuset', 'lekue', 'reer', 'nuvita', 'chicco', 'dr. brown', 'dr brown', 'neoklein', 'paa-home', 'ecovent', 'micul fermier', 'eur gas', 'babycalin', 'mobila sa', 'pako world', 'fadome', 'badenmob'];
 // substring match -> prinde "Melissa & Doug", "SmartHeater" etc. (potrivirea exacta le scapa)
 const BRAND_SQL = BRAND_BLOCK.map((b) => `lower(coalesce(brand,'')) NOT LIKE '%${b}%'`).join(' AND ');
 const rows = db.prepare(`SELECT id, slug, title, price, oldPrice, brand, brandSlug, merchant, merchantSlug, img, descr
