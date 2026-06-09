@@ -28,10 +28,26 @@ const NOT_WORDS = ['accesori', 'piesa', 'piese', 'filtru', 'filtre', ' sac ', ' 
   // frigidere auto / coolere portabile (nu aparatura de casa)
   'frigider auto', 'frigider portabil', 'lada frigorifica auto', 'cooler',
   // diverse non-aparatura
-  'panou solar', 'baterie suplimentara'];
+  'panou solar', 'baterie suplimentara',
+  // piese/accesorii de frigider scapate (cosuri, usi, ecrane, becuri, tavi, ventilatoare)
+  'cutie frigider', 'cutie depozitare', 'cos depozitare', 'cosuri', 'cos pentru', 'organizator', 'bec ', 'maner retractabil', 'mâner ușă', 'tava de congelator', 'tava pentru congelator', 'tavi pentru congelator', 'tava congelator', 'ventilator frigider', 'ecran frigider', 'ecran lcd potrivit', 'placa de incarcare', 'usa mica-', 'usa mare-', 'usa completa-', 'usa-frigider',
+  // mini-coolere termoelectrice / auto / novelty (nu frigidere de casa)
+  'mini frigider', 'frigider turistic', '12v', '24v', ' make up', 'cosmetic', 'turistic', 'geanta frigorific', 'geanta termo', 'borseta',
+  // "X pentru <aparat>" = accesoriu/piesa, NU aparatul in sine (prinde generic pe toate categoriile)
+  'pentru aspirator', 'pentru masina de spalat', 'pentru mașina de spălat', 'pentru frigider', 'pentru congelator', 'pentru cuptor', 'pentru microunde', 'pentru hota', 'pentru plita',
+  // kituri / piese / montaj / servicii
+  'kit de suprapunere', 'kit suprapunere', 'kit montare', 'kit montaj', 'kit de montaj', 'suprapunere', 'zile lucratoare', 'zile lucrătoare', 'serviciu', 'servicii', 'schimbare sens', 'panou decorativ', 'panou frontal', 'front pentru', 'benzi decorative', 'display unitate', 'piedestal', 'lubrifiant', 'degresant', 'parfum', 'set de conexiune', 'set conexiune', 'kit montaj frigider',
+  // vase de gatit / consumabile / sterilizatoare / jucarii-context
+  'sterilizator', 'tigaie', 'oala din', 'oala cu capac', ' wok', 'set de joc', 'set din lemn', 'set de 50',
+  // camping / tubulatura / mini-ventilatoare de mana
+  'aragaz camping', 'aragaz exterior', 'camping', 'portabil de mana', 'portabil de mână', 'tubulatura', 'tubulatură', 'teava pex', 'spiro',
+  // resturi: piese/servicii frigider, accesorii aspirator, mobilier, vase
+  'pentru aragaz', 'tava cuptor', 'tavă cuptor', 'panou interschimbabil', 'montaj frigider', 'montaj masina', 'montaj mașina', 'montaj side', 'aspirator nazal', 'perie aspirator', 'adaptor aspirator', 'incarcator aspirator', 'încărcător aspirator', 'alimentator', 'baza de incarcare', 'bază de încărcare', 'dublura', 'saci aspirator', 'perie rotativa', 'rola mop', 'cutie de praf', 'suport laveta', 'rezervor de apa', 'dulap baie', 'dulap masina', 'dulap mașina', 'cutitul', 'cuțitul', 'cutit santoku', 'set de 4 cutite', 'set de cutite', 'cutite cu suport', 'cratita', 'cratiță', 'fier turnat'];
 const NOT_SQL = NOT_WORDS.map((w) => `lower(title) NOT LIKE '%${w}%'`).join(' AND ');
-const BRAND_BLOCK = ['smallrig', 'insta360', 'leifheit', 'vileda', 'gimi', 'brabantia', 'fisher-price', 'fisher price', 'svoora', 'zuru', 'playgo', 'melissa', 'lego', 'hasbro', 'noriel', 'roller', 'atelier 49', 'gossi', 'homcom', 'outsunny', 'aosom', 'helty', 'hyperx', 'jbl'];
-const BRAND_SQL = BRAND_BLOCK.map((b) => `lower(coalesce(brand,'')) <> '${b}'`).join(' AND ');
+const BRAND_BLOCK = ['smallrig', 'insta360', 'leifheit', 'vileda', 'gimi', 'brabantia', 'fisher-price', 'fisher price', 'svoora', 'zuru', 'playgo', 'melissa', 'lego', 'hasbro', 'noriel', 'atelier 49', 'gossi', 'homcom', 'outsunny', 'aosom', 'helty', 'hyperx', 'jbl', 'smartheater', 'smart heater', 'osram', 'rotho', 'tenq', 'gave', 'ukonic', 'ecoflow', 'anker',
+  'spectral', 'songmics', 'spirella', 'jisulife', 'sonne', 'lelin', 'sonte', 'barbie', 'le creuset', 'lekue', 'reer', 'nuvita', 'chicco', 'dr. brown', 'dr brown', 'neoklein', 'paa-home', 'ecovent', 'micul fermier', 'eur gas', 'babycalin', 'mobila sa', 'pako world', 'fadome'];
+// substring match -> prinde "Melissa & Doug", "SmartHeater" etc. (potrivirea exacta le scapa)
+const BRAND_SQL = BRAND_BLOCK.map((b) => `lower(coalesce(brand,'')) NOT LIKE '%${b}%'`).join(' AND ');
 const rows = db.prepare(`SELECT id, slug, title, price, oldPrice, brand, brandSlug, merchant, merchantSlug, img, descr
   FROM products WHERE (megaSlug='electronice-it' OR megaSlug='casa-gradina') AND (subSlug IN (${INQ}) OR ${TITLE}) AND ${NOT_SQL} AND ${BRAND_SQL}
   AND img IS NOT NULL AND img <> '' AND price >= 100 ORDER BY price DESC`).all();
@@ -140,6 +156,8 @@ for (const row of rows) {
   const img = imgUrl(row.img, row.title); if (!img) continue;
   const cu = (CAMPAIGN[row.merchantSlug] || {}).c; if (!cu) continue;
   const catSlug = classify(row.title);
+  // uscatoare-rufe: doar uscatoare ELECTRICE (au kg/clasa/pompa de caldura/condensare), nu suporturile pasive de uscat rufe
+  if (catSlug === 'uscatoare-rufe' && !/\bkg\b|pompa de c|pompă de c|condensare|clasa [a-g]|clasă [a-g]/i.test(row.title)) continue;
   const sp = parseSpecs(row.title, row.descr, row.brand, catSlug);
   const mkey = modelKey(row.title, row.brandSlug, sp, catSlug);
   const mSlug = merchSlugOf(row.merchant);
